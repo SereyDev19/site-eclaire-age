@@ -1,0 +1,59 @@
+---
+import CloudRain from '@lucide/astro/icons/cloud-rain';
+import Zap from '@lucide/astro/icons/zap';
+import BookX from '@lucide/astro/icons/book-x';
+import ShieldOff from '@lucide/astro/icons/shield-off';
+
+const items = [
+  {
+    icon: CloudRain,
+    title: "Perte de repères et mal-être diffus",
+    intro: "Quand l'ado ne va pas bien, mais que personne ne sait vraiment pourquoi.",
+    body: "Difficulté à se lever le matin, chute de motivation, isolement, émotions à fleur de peau, ou tout simplement \"quelque chose qui ne va pas\". Ces signes peuvent être déroutants pour les parents comme pour l'ado."
+  },
+  {
+    icon: Zap,
+    title: "Conflits familiaux et communication rompue",
+    intro: "Quand parler devient difficile, voire impossible.",
+    body: "Tensions, reproches, silence ou incompréhension... Il arrive que la relation parent-ado se tende au point de se figer. Restaurer le lien est souvent la première étape vers l'apaisement."
+  },
+  {
+    icon: BookX,
+    title: "Désengagement scolaire ou errance d'orientation",
+    intro: "Quand l'école devient source d'angoisse ou d'échec.",
+    body: "Décrochage, démotivation, refus de se projeter... Je vous aide à comprendre ce qui se joue derrière ces blocages, et à retrouver une dynamique porteuse."
+  },
+  {
+    icon: ShieldOff,
+    title: "Manque de confiance et repli sur soi",
+    intro: "Quand l'adolescent ne croit plus en lui (ou n'a jamais su comment faire).",
+    body: "Estime de soi en berne, peur du regard des autres, impression de ne pas \"rentrer dans le moule\"... Un regard extérieur et bienveillant peut aider à faire émerger les ressources."
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-surface">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-4">
+        Les problématiques que j'accompagne au quotidien
+      </h2>
+      <p class="text-content-light max-w-xl mx-auto leading-relaxed">
+        Chaque adolescent est unique, mais certains signaux reviennent souvent. Voici les situations pour lesquelles les familles me sollicitent le plus.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {items.map(({ icon: Icon, title, intro, body }) => (
+        <div class="group bg-surface rounded-2xl border border-outline/50 p-7 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+          <div class="w-10 h-10 flex items-center justify-center bg-primary/8 rounded-xl mb-5 group-hover:bg-primary/15 transition-colors duration-300">
+            <Icon class="w-5 h-5 text-primary" />
+          </div>
+          <h3 class="text-lg font-bold text-content mb-3 group-hover:text-primary transition-colors duration-300">{title}</h3>
+          <p class="text-sm text-content-light italic leading-relaxed mb-3 border-l-2 border-primary/20 pl-3">{intro}</p>
+          <p class="text-sm text-content-light leading-relaxed">{body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

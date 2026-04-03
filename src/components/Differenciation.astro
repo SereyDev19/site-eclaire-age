@@ -1,0 +1,65 @@
+---
+import Video from '@lucide/astro/icons/video';
+import Clock from '@lucide/astro/icons/clock';
+import Heart from '@lucide/astro/icons/heart';
+import Shield from '@lucide/astro/icons/shield';
+import Sparkles from '@lucide/astro/icons/sparkles';
+import HandHeart from '@lucide/astro/icons/hand-heart';
+
+const features = [
+  {
+    icon: Video,
+    title: "Séances 100% en ligne",
+    description: "Des consultations en visio accessibles partout, sans déplacement ni salle d'attente."
+  },
+  {
+    icon: Clock,
+    title: "Créneaux flexibles",
+    description: "Des horaires adaptés au rythme des adolescents et aux contraintes des parents."
+  },
+  {
+    icon: Heart,
+    title: "Approche bienveillante",
+    description: "Un cadre sécurisant et sans jugement pour favoriser l'expression libre."
+  },
+  {
+    icon: Shield,
+    title: "Confidentialité totale",
+    description: "Des échanges sécurisés dans le respect du cadre déontologique."
+  },
+  {
+    icon: Sparkles,
+    title: "Méthodes personnalisées",
+    description: "Des outils thérapeutiques adaptés à chaque profil : ado, jeune adulte, famille."
+  },
+  {
+    icon: HandHeart,
+    title: "Accompagnement global",
+    description: "Un suivi qui inclut l'adolescent, les parents et la dynamique familiale."
+  }
+];
+---
+
+<section class="bg-surface-alt py-20 md:py-[80px]">
+  <div class="mx-auto max-w-[1200px] px-6 lg:px-8">
+    <!-- Titre centré -->
+    <div class="text-center mb-12 md:mb-14">
+      <h2 class="text-2xl sm:text-3xl lg:text-[2rem] font-bold text-content">
+        Un accompagnement différent, pensé pour les familles d'aujourd'hui
+      </h2>
+    </div>
+
+    <!-- Grille 3 colonnes (brief: 3 cols pour features) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map(({ icon: Icon, title, description }) => (
+        <div class="p-6 bg-surface rounded-xl border border-outline hover:border-primary/40 hover:shadow-md transition-all duration-200">
+          <div class="w-10 h-10 flex items-center justify-center bg-surface-alt rounded-full mb-4">
+            <Icon class="w-5 h-5 text-primary" />
+          </div>
+          <h3 class="text-[0.95rem] font-semibold text-content mb-1.5">{title}</h3>
+          <p class="text-sm text-content-light leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

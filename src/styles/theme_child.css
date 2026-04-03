@@ -25,3 +25,31 @@
  */
 
 /* Add your custom theme overrides below */
+
+@theme {
+  /* === Charte EclaireAge === */
+
+  /* Typography */
+  --font-sans: 'Poppins', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
+  /* Primary - violet */
+  --color-primary: #7B4FA6;
+  --color-primary-dark: #63408a;
+  --color-primary-light: #A67CC5;
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-alt: #F3EAFA;
+  --color-surface-hover: #ede0f5;
+  --color-surface-warm: #F5EDE8;
+  --color-surface-dark: #2D2D2D;
+
+  /* Text */
+  --color-content: #1A1A1A;
+  --color-content-light: #6B6B6B;
+
+  /* Outline */
+  --color-outline: #EDE0F5;
+  --color-outline-light: #F3EAFA;
+}

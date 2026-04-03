@@ -1,0 +1,53 @@
+---
+import MapPin from '@lucide/astro/icons/map-pin';
+import Footprints from '@lucide/astro/icons/footprints';
+import Video from '@lucide/astro/icons/video';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+---
+
+<section class="py-16 md:py-24 bg-surface">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+      <!-- Texte -->
+      <div>
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-2">
+          Cabinet à Blagnac (31700)
+        </h2>
+        <p class="text-content-light mb-8">Un lieu facile d'accès, pensé pour accueillir les familles.</p>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex gap-3 items-start">
+            <div class="w-8 h-8 rounded-lg bg-yellow-50 flex items-center justify-center flex-shrink-0">
+              <MapPin class="w-4 h-4 text-yellow-500" />
+            </div>
+            <p class="text-sm text-content leading-relaxed pt-1">Je vous reçois dans mon cabinet à Blagnac à proximité du tramway T1 et de l'aéroport.</p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="w-8 h-8 rounded-lg bg-primary/8 flex items-center justify-center flex-shrink-0">
+              <Footprints class="w-4 h-4 text-primary" />
+            </div>
+            <p class="text-sm text-content leading-relaxed pt-1">À 15 min à pied du centre-ville de Blagnac</p>
+          </div>
+          <div class="flex gap-3 items-start">
+            <div class="w-8 h-8 rounded-lg bg-cyan-50 flex items-center justify-center flex-shrink-0">
+              <Video class="w-4 h-4 text-cyan-500" />
+            </div>
+            <p class="text-sm text-content leading-relaxed pt-1">Des séances en visio sont également possibles selon vos besoins.</p>
+          </div>
+        </div>
+
+        <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          Prendre rendez-vous
+          <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+      </div>
+
+      <!-- Carte -->
+      <div class="aspect-[4/3] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center border border-outline/30 shadow-sm">
+        <span class="text-content-light/40 text-sm">Carte Google Maps</span>
+      </div>
+
+    </div>
+  </div>
+</section>

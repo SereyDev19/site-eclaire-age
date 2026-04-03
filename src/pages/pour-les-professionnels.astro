@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import Handshake from '@lucide/astro/icons/handshake';
+import AlertTriangle from '@lucide/astro/icons/triangle-alert';
+import HeartCrack from '@lucide/astro/icons/heart-crack';
+import ShieldOff from '@lucide/astro/icons/shield-off';
+import BookX from '@lucide/astro/icons/book-x';
+import Ear from '@lucide/astro/icons/ear';
+import Lightbulb from '@lucide/astro/icons/lightbulb';
+import RefreshCw from '@lucide/astro/icons/refresh-cw';
+import Quote from '@lucide/astro/icons/quote';
+import CalendarCheck from '@lucide/astro/icons/calendar-check';
+import MessageSquare from '@lucide/astro/icons/message-square';
+import FileText from '@lucide/astro/icons/file-text';
+import ChevronDown from '@lucide/astro/icons/chevron-down';
+
+const situations = [
+  {
+    icon: AlertTriangle,
+    title: "Signaux d'alerte chez un élève",
+    body: "Repli sur soi, absentéisme, chute des résultats, comportements à risque... Vous percevez que quelque chose ne va pas mais ne savez pas comment agir."
+  },
+  {
+    icon: HeartCrack,
+    title: "Détresse émotionnelle visible",
+    body: "Crises d'angoisse, pleurs fréquents, automutilation, idées noires... Des situations qui nécessitent un relais psychologique rapide."
+  },
+  {
+    icon: ShieldOff,
+    title: "Harcèlement scolaire identifié",
+    body: "Vous avez connaissance d'une situation de harcèlement et l'élève ou sa famille a besoin d'un accompagnement extérieur à l'établissement."
+  },
+  {
+    icon: BookX,
+    title: "Décrochage scolaire progressif",
+    body: "Démotivation chronique, refus scolaire anxieux, orientation subie... L'élève a besoin d'un espace pour comprendre ce qui bloque."
+  }
+];
+
+const espaceItems = [
+  {
+    icon: Ear,
+    title: "Écoute",
+    description: "Un espace neutre, hors du cadre scolaire ou médical, où l'adolescent peut se livrer sans crainte."
+  },
+  {
+    icon: Lightbulb,
+    title: "Clarté",
+    description: "Un diagnostic clair de la situation, partagé avec les parents et, si besoin, avec les professionnels impliqués."
+  },
+  {
+    icon: RefreshCw,
+    title: "Reconstruction",
+    description: "Un travail progressif pour restaurer la confiance, le lien familial et la dynamique scolaire."
+  }
+];
+
+const temoignages = [
+  {
+    text: "Claire a su créer un lien de confiance très rapidement avec notre élève. Le retour en classe s'est fait progressivement, avec un vrai apaisement.",
+    author: "CPE, collège à Toulouse"
+  },
+  {
+    text: "J'oriente régulièrement des familles vers EclaireAge. Les retours sont toujours positifs, et la communication avec Claire est fluide et professionnelle.",
+    author: "Médecin généraliste, Blagnac"
+  }
+];
+
+const accessibilite = [
+  {
+    icon: CalendarCheck,
+    title: "Délais courts",
+    description: "Des créneaux disponibles rapidement pour ne pas laisser une situation s'enliser."
+  },
+  {
+    icon: MessageSquare,
+    title: "Lien direct avec vous",
+    description: "Avec l'accord de la famille, je fais un retour synthétique sur l'évolution de la prise en charge."
+  },
+  {
+    icon: FileText,
+    title: "Transmission facilitée",
+    description: "Un premier contact simple par téléphone ou email pour évaluer la situation ensemble."
+  }
+];
+
+const faq = [
+  {
+    q: "Comment orienter un jeune ou une famille vers EclaireAge ?",
+    a: "Vous pouvez me contacter directement par téléphone ou email pour me décrire la situation. Je vous confirme rapidement si mon accompagnement est adapté, et je peux proposer un premier appel de 15 minutes avec la famille."
+  },
+  {
+    q: "Est-ce que vous faites des retours aux professionnels orienteurs ?",
+    a: "Oui, avec l'accord écrit de la famille. Je peux transmettre un bilan synthétique de la prise en charge et des axes de travail, dans le respect du secret professionnel."
+  },
+  {
+    q: "Quels types de professionnels vous orientent des familles ?",
+    a: "CPE, infirmiers scolaires, enseignants, médecins généralistes, pédiatres, assistants sociaux, éducateurs spécialisés, orthophonistes... Tout professionnel en contact avec des adolescents en difficulté."
+  },
+  {
+    q: "Proposez-vous des interventions en établissement ?",
+    a: "Oui, je propose des ateliers collectifs (groupes de parole, prévention harcèlement, gestion des émotions) et des interventions ponctuelles adaptées à vos besoins."
+  }
+];
+---
+
+<BaseLayout title="Pour les professionnels — EclaireAge">
+  <!-- Header + Hero -->
+  <div class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
+    <Header />
+
+    <section class="px-6 lg:px-8 pt-8 pb-20 md:pt-12 md:pb-28">
+      <div class="max-w-[800px] mx-auto text-center">
+        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Pour les professionnels</p>
+        <h1 class="text-[2rem] sm:text-[2.4rem] lg:text-[2.75rem] font-bold leading-[1.2] tracking-tight text-content mb-6">
+          Vous êtes professionnel de <span class="text-primary">l'éducation</span>, du <span class="text-primary">social</span> ou de la <span class="text-primary">santé</span> ?
+        </h1>
+        <p class="text-content-light leading-relaxed mb-8 max-w-xl mx-auto">
+          Vous accompagnez des adolescents au quotidien et vous avez besoin d'un relais psychologique fiable, réactif et adapté à leurs problématiques. Je suis là pour ça.
+        </p>
+
+        <div class="w-20 h-20 mx-auto rounded-full bg-primary/8 flex items-center justify-center">
+          <Handshake class="w-9 h-9 text-primary" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main id="main-content">
+
+    <!-- Approche -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-[800px] mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
+          Une approche psychologique structurée, humaine... et tournée vers l'action
+        </h2>
+        <p class="text-content-light leading-relaxed mb-6">
+          Mon approche repose sur une méthodologie claire et des objectifs définis avec la famille. Chaque prise en charge est individualisée, avec une attention particulière au contexte scolaire, familial et social de l'adolescent.
+        </p>
+        <p class="text-content-light leading-relaxed">
+          Je travaille en lien étroit avec les professionnels qui m'orientent des familles, dans le respect du cadre déontologique et avec l'accord des parents.
+        </p>
+      </div>
+    </section>
+
+    <!-- Situations -->
+    <section class="py-16 md:py-24 bg-surface">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
+          Les situations pour lesquelles vous pouvez m'orienter
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {situations.map(({ icon: Icon, title, body }) => (
+            <div class="group bg-surface rounded-2xl border border-outline/50 p-7 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+              <div class="w-10 h-10 flex items-center justify-center bg-primary/8 rounded-xl mb-5 group-hover:bg-primary/15 transition-colors duration-300">
+                <Icon class="w-5 h-5 text-primary" />
+              </div>
+              <h3 class="text-lg font-bold text-content mb-2 group-hover:text-primary transition-colors duration-300">{title}</h3>
+              <p class="text-sm text-content-light leading-relaxed">{body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Espace d'écoute -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
+          Un espace d'écoute, de clarté et de reconstruction
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {espaceItems.map(({ icon: Icon, title, description }) => (
+            <div class="group text-center">
+              <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-primary/8 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                <Icon class="w-7 h-7 text-primary" />
+              </div>
+              <h3 class="text-lg font-bold text-content mb-2">{title}</h3>
+              <p class="text-sm text-content-light leading-relaxed max-w-xs mx-auto">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Soutien complémentaire -->
+    <section class="py-16 md:py-24 bg-primary overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 translate-y-1/3"></div>
+
+      <div class="max-w-[800px] mx-auto px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-white tracking-tight mb-6">
+          Un soutien complémentaire à vos actions de terrain
+        </h2>
+        <p class="text-white/75 leading-relaxed mb-8 max-w-xl mx-auto">
+          Mon rôle n'est pas de me substituer à votre action, mais de la compléter. Vous restez le référent de l'élève dans votre cadre professionnel. Je prends le relais sur le volet psychologique, en lien avec vous et la famille.
+        </p>
+        <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          Me contacter
+          <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
+          On m'a trouvée par le bouche-à-oreille... et voici ce qu'ils en retiennent
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {temoignages.map((t) => (
+            <div class="relative bg-surface rounded-2xl border border-outline/50 p-7">
+              <Quote class="w-8 h-8 text-primary/15 absolute top-5 right-6" />
+              <p class="text-content-light leading-relaxed italic mb-5">"{t.text}"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-primary/8 flex-shrink-0 flex items-center justify-center">
+                  <span class="text-primary text-xs font-bold">{t.author.charAt(0)}</span>
+                </div>
+                <p class="text-sm font-medium text-content">{t.author}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessibilité -->
+    <section class="py-16 md:py-24 bg-surface-alt/50">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
+          Comment rendre l'orientation accessible... et engageante ?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {accessibilite.map(({ icon: Icon, title, description }, i) => (
+            <div class="group bg-surface rounded-2xl border-2 border-primary/15 p-6 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center">
+              <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-primary/8 flex items-center justify-center group-hover:bg-primary/15 transition-colors duration-300">
+                <Icon class="w-5 h-5 text-primary" />
+              </div>
+              <h3 class="font-bold text-content mb-2 group-hover:text-primary transition-colors duration-300">{title}</h3>
+              <p class="text-sm text-content-light leading-relaxed">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 md:py-24 bg-surface-dark text-white">
+      <div class="max-w-[800px] mx-auto px-6 lg:px-8">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-white tracking-tight text-center mb-12">
+          Questions fréquentes
+        </h2>
+        <div class="space-y-3">
+          {faq.map((item, i) => (
+            <div class="faq-item border border-white/10 rounded-xl overflow-hidden">
+              <button
+                type="button"
+                class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer hover:bg-white/5 transition-colors"
+                data-faq-index={i}
+              >
+                <span class="font-medium text-white pr-4">{item.q}</span>
+                <ChevronDown class="w-5 h-5 text-white/50 flex-shrink-0 faq-chevron transition-transform duration-200" />
+              </button>
+              <div class="faq-content hidden px-6 pb-5">
+                <p class="text-white/65 leading-relaxed text-sm">{item.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-light/20 via-primary/10 to-primary-light/20"></div>
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
+        <div class="bg-surface rounded-3xl shadow-xl px-8 py-10 md:px-14 md:py-12 border border-outline/20">
+          <div class="flex flex-col lg:flex-row items-center gap-10">
+            <div class="flex-1">
+              <h2 class="text-[1.5rem] sm:text-[1.8rem] font-bold text-primary tracking-tight mb-3">
+                Vous souhaitez orienter un jeune ou une famille ?
+              </h2>
+              <p class="text-content-light leading-relaxed mb-6 max-w-md">
+                Contactez-moi directement pour échanger sur la situation. Premier échange téléphonique offert et sans engagement.
+              </p>
+              <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                Prendre contact
+                <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+            <div class="w-32 h-32 lg:w-36 lg:h-36 rounded-full bg-surface-alt flex-shrink-0 flex items-center justify-center shadow-md ring-4 ring-white">
+              <span class="text-content-light/40 text-xs">Photo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const parent = trigger.closest('.faq-item');
+      if (!parent) return;
+      const content = parent.querySelector('.faq-content');
+      const chevron = trigger.querySelector('.faq-chevron');
+      if (content && chevron) {
+        content.classList.toggle('hidden');
+        chevron.classList.toggle('rotate-180');
+      }
+    });
+  });
+</script>

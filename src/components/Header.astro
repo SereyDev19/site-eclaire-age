@@ -8,14 +8,17 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<header class:list={["px-4 py-4", className]}>
-    <div class="max-w-5xl mx-auto flex items-center justify-between">
-        <!-- You can add your logo here -->
-        <a href="/" class="font-semibold text-lg text-content no-underline cursor-pointer">
-            My Site
-        </a>
-        
-        <!-- Menu Area (Right Aligned) -->
-        <MainMenu />
+<header class:list={["relative z-50", className]}>
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-1 no-underline cursor-pointer group">
+      <span class="inline-flex items-center justify-center w-7 h-7 bg-primary rounded-full text-white text-sm font-bold group-hover:scale-110 transition-transform duration-200">e</span>
+      <span class="text-lg text-content-light font-light tracking-tight">claire'age</span>
+    </a>
+
+    <!-- Nav -->
+    <div class="uppercase tracking-[0.15em] text-[0.8rem]">
+      <MainMenu />
     </div>
+  </div>
 </header>

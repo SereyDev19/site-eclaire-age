@@ -1,0 +1,53 @@
+---
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import Quote from '@lucide/astro/icons/quote';
+---
+
+<section class="px-6 lg:px-8 pt-4 pb-20 md:pt-8 md:pb-28">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Texte -->
+      <div class="max-w-lg">
+        <h1 class="text-[2rem] sm:text-[2.4rem] lg:text-[2.75rem] font-bold leading-[1.2] tracking-tight text-content mb-6">
+          Je vous aide à traverser l'adolescence avec plus de <span class="text-primary">clarté</span>, de <span class="text-primary">calme</span> et de <span class="text-primary">lien</span>.
+        </h1>
+
+        <p class="text-content-light leading-relaxed mb-8">
+          Psychologue pour ados &amp; parents — Des séances pensées pour vous aider à comprendre ce qui se joue, et avancer ensemble dans la même direction.
+        </p>
+
+        <a
+          href="#contact"
+          class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+        >
+          En savoir plus
+          <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+
+        <!-- Témoignage -->
+        <div class="mt-12 relative bg-surface-alt/60 rounded-2xl p-5 border border-outline/40">
+          <Quote class="w-5 h-5 text-primary/30 absolute top-4 left-4" />
+          <div class="flex gap-3 items-start pl-4">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex-shrink-0 mt-0.5"></div>
+            <p class="text-[0.82rem] text-content-light italic leading-relaxed">
+              Grâce à l'accompagnement de Claire, mon fils a enfin retrouvé confiance en lui et une vraie motivation pour ses études. En quelques séances, il a clarifié ses envies et trouvé une voie qui lui correspond vraiment.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative">
+        <!-- Décor violet -->
+        <div class="absolute -right-3 top-6 bottom-6 w-1.5 rounded-full bg-gradient-to-b from-primary to-primary-light hidden lg:block"></div>
+        <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-primary/5 rounded-[2rem] rotate-2"></div>
+
+        <div class="aspect-[4/3] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-lg">
+          <span class="text-content-light/50 text-sm">Photo hero</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

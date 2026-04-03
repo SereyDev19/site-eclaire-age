@@ -1,0 +1,85 @@
+---
+import Check from '@lucide/astro/icons/check';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+---
+
+<section class="bg-surface-warm py-16 md:py-24">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+
+    <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-12">
+      Vers une transformation
+    </h2>
+
+    <!-- Bloc 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 lg:mb-20">
+      <div>
+        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-6">Suite à notre accompagnement,</p>
+
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
+              <Check class="w-3.5 h-3.5 text-white" />
+            </div>
+            <div>
+              <p class="font-bold text-content mb-1">Vous retrouvez un climat familial apaisé</p>
+              <p class="text-sm text-content-light leading-relaxed">Moins de tensions, plus de compréhension mutuelle, et une communication qui redevient possible.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
+              <Check class="w-3.5 h-3.5 text-white" />
+            </div>
+            <div>
+              <p class="font-bold text-content mb-1">Vous avez les clés pour comprendre les vrais enjeux derrière les symptômes</p>
+              <p class="text-sm text-content-light leading-relaxed">Je vous aide à décoder les signaux faibles, à comprendre ce que votre ado essaie (maladroitement) d'exprimer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="aspect-[4/3] rounded-2xl bg-white/60 overflow-hidden flex items-center justify-center shadow-sm">
+        <span class="text-content-light/40 text-sm">Photo</span>
+      </div>
+    </div>
+
+    <!-- Bloc 2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="aspect-[4/3] rounded-2xl bg-white/60 overflow-hidden flex items-center justify-center shadow-sm order-2 lg:order-1">
+        <span class="text-content-light/40 text-sm">Photo</span>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-6">Vous pourrez également</p>
+
+        <div class="space-y-6 mb-10">
+          <div class="flex gap-4">
+            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
+              <Check class="w-3.5 h-3.5 text-white" />
+            </div>
+            <div>
+              <p class="font-bold text-content mb-1">(Re)donner confiance à votre adolescent</p>
+              <p class="text-sm text-content-light leading-relaxed">Chaque accompagnement vise à renforcer l'estime de soi et l'autonomie du jeune, à son rythme.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
+              <Check class="w-3.5 h-3.5 text-white" />
+            </div>
+            <div>
+              <p class="font-bold text-content mb-1">Trouver des repères concrets pour avancer</p>
+              <p class="text-sm text-content-light leading-relaxed">Des outils, des pistes, des éclairages adaptés à votre situation, pour sortir de l'impuissance.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          En savoir plus
+          <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

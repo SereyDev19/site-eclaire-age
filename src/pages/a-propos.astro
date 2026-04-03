@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import Check from '@lucide/astro/icons/check';
+import Heart from '@lucide/astro/icons/heart';
+import Shield from '@lucide/astro/icons/shield';
+import Sparkles from '@lucide/astro/icons/sparkles';
+import Users from '@lucide/astro/icons/users';
+import GraduationCap from '@lucide/astro/icons/graduation-cap';
+import BookOpen from '@lucide/astro/icons/book-open';
+import Brain from '@lucide/astro/icons/brain';
+import Handshake from '@lucide/astro/icons/handshake';
+
+const valeurs = [
+  {
+    icon: Heart,
+    title: "Bienveillance",
+    description: "Un regard chaleureux et sans jugement, pour que chacun se sente accueilli tel qu'il est."
+  },
+  {
+    icon: Shield,
+    title: "Engagement",
+    description: "Un suivi rigoureux, des objectifs clairs, et une implication sincère à chaque étape."
+  },
+  {
+    icon: Sparkles,
+    title: "Pragmatisme",
+    description: "Des outils concrets et adaptés, pas de théorie abstraite. Ce qui compte, c'est le résultat."
+  },
+  {
+    icon: Users,
+    title: "Co-construction",
+    description: "Chaque accompagnement se construit ensemble, avec l'ado et sa famille, au même niveau."
+  }
+];
+
+const cadreCards = [
+  {
+    title: "Un espace sécurisé et confidentiel",
+    body: "Chaque séance se déroule dans un cadre protégé, en cabinet ou en visio, où la parole circule librement et en toute confiance."
+  },
+  {
+    title: "Une écoute active, pas passive",
+    body: "Je ne me contente pas d'écouter : je questionne, je reformule, je propose des pistes. L'objectif est d'avancer, pas de tourner en rond."
+  },
+  {
+    title: "Des objectifs définis ensemble",
+    body: "Dès le départ, nous posons un cadre clair : ce que vous attendez, ce qui est réaliste, et comment mesurer les progrès."
+  },
+  {
+    title: "Un rythme adapté à chacun",
+    body: "Pas de protocole rigide. La fréquence et la durée s'ajustent à la situation, aux besoins, et au rythme de votre adolescent."
+  }
+];
+
+const parcours = [
+  {
+    title: "Master en psychologie clinique",
+    body: "Spécialisation en psychopathologie de l'adolescent et du jeune adulte."
+  },
+  {
+    title: "7 ans en éducation nationale",
+    body: "Accompagnement d'élèves en difficulté, travail avec les équipes pédagogiques et les familles."
+  },
+  {
+    title: "Formations continues",
+    body: "TCC, thérapie systémique, gestion des émotions, prévention du harcèlement scolaire."
+  }
+];
+---
+
+<BaseLayout title="À propos — EclaireAge">
+  <!-- Header + Hero -->
+  <div class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
+    <Header />
+
+    <section class="px-6 lg:px-8 pt-4 pb-20 md:pt-8 md:pb-28">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="max-w-lg">
+            <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">À propos</p>
+            <h1 class="text-[2rem] sm:text-[2.4rem] lg:text-[2.75rem] font-bold leading-[1.2] tracking-tight text-content mb-6">
+              Je suis Claire, psychologue pour <span class="text-primary">ados & parents</span>
+            </h1>
+            <p class="text-content-light leading-relaxed">
+              Derrière EclaireAge, il y a un parcours, des convictions, et une envie sincère d'aider les familles à traverser l'adolescence plus sereinement.
+            </p>
+          </div>
+          <div class="relative">
+            <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-primary/5 rounded-[2rem] rotate-2"></div>
+            <div class="aspect-[4/3] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-lg">
+              <span class="text-content-light/40 text-sm">Photo portrait</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main id="main-content">
+
+    <!-- Section : Mon histoire -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div>
+            <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
+              Je m'appelle Claire, et si je suis psychologue aujourd'hui, ce n'est pas un hasard
+            </h2>
+            <div class="space-y-4 text-content-light leading-relaxed">
+              <p>
+                Très tôt, j'ai été sensible aux dynamiques familiales et aux difficultés que traversent les adolescents. Après un parcours en psychologie clinique, j'ai travaillé pendant sept ans au sein de l'éducation nationale, au contact direct des élèves, des parents et des équipes pédagogiques.
+              </p>
+              <p>
+                Cette expérience de terrain m'a appris une chose essentielle : pour accompagner un adolescent, il faut comprendre tout son écosystème — sa famille, son école, ses peurs, ses rêves. C'est cette vision globale qui guide chacune de mes séances.
+              </p>
+            </div>
+          </div>
+          <div class="aspect-[3/4] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-sm">
+            <span class="text-content-light/40 text-sm">Photo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section : Redonner du sens -->
+    <section class="py-16 md:py-20 bg-surface-alt/50">
+      <div class="max-w-[700px] mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
+          Redonner du sens, du lien, des repères.
+        </h2>
+        <p class="text-content-light leading-relaxed">
+          Mon rôle, c'est de créer un espace où l'adolescent peut se poser, se dire, et être entendu. Où les parents trouvent des réponses concrètes et un soutien sincère. Où la famille, dans son ensemble, retrouve une dynamique plus apaisée. Ce n'est pas de la magie — c'est du travail, de l'écoute, et une méthodologie adaptée à chaque situation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section : Valeurs fondatrices -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
+          Mes valeurs fondatrices
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {valeurs.map(({ icon: Icon, title, description }) => (
+            <div class="group text-center">
+              <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-primary/8 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                <Icon class="w-6 h-6 text-primary" />
+              </div>
+              <h3 class="font-bold text-content mb-2">{title}</h3>
+              <p class="text-sm text-content-light leading-relaxed">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Section : Un cadre clair -->
+    <section class="py-16 md:py-24 bg-surface">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
+          Un cadre clair, une écoute vraie, pour avancer ensemble
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {cadreCards.map((card) => (
+            <div class="group bg-surface rounded-2xl border-2 border-primary/15 p-6 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+              <h3 class="text-[0.95rem] font-bold text-content mb-3 leading-snug group-hover:text-primary transition-colors duration-300">{card.title}</h3>
+              <p class="text-sm text-content-light leading-relaxed">{card.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Section : Formation -->
+    <section class="py-16 md:py-24 bg-primary overflow-hidden relative">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
+        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-white tracking-tight text-center mb-12">
+          Une formation solide, un parcours transversal
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {parcours.map((item, i) => (
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-4">
+                {i === 0 ? <GraduationCap class="w-5 h-5 text-white" /> : i === 1 ? <BookOpen class="w-5 h-5 text-white" /> : <Brain class="w-5 h-5 text-white" />}
+              </div>
+              <h3 class="font-bold text-white mb-2">{item.title}</h3>
+              <p class="text-sm text-white/70 leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Section : EclaireAge est né... -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div>
+            <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
+              EclaireAge est né d'un besoin profond : faire les choses autrement.
+            </h2>
+            <div class="space-y-4 text-content-light leading-relaxed mb-8">
+              <p>
+                Après des années à accompagner des jeunes dans des cadres institutionnels, j'ai voulu créer un espace plus libre, plus souple, plus humain. Un espace où chaque famille est écoutée dans sa singularité, sans protocole rigide ni liste d'attente interminable.
+              </p>
+              <p>
+                EclaireAge, c'est la promesse d'un accompagnement sur-mesure, ancré dans le réel, qui prend en compte l'adolescent, ses parents, et toute la complexité de ce qu'ils traversent.
+              </p>
+            </div>
+            <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+              Découvrir les services
+              <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
+          <div class="aspect-[4/3] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-sm">
+            <span class="text-content-light/40 text-sm">Photo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-light/20 via-primary/10 to-primary-light/20"></div>
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
+        <div class="bg-surface rounded-3xl shadow-xl px-8 py-10 md:px-14 md:py-12 border border-outline/20">
+          <div class="flex flex-col lg:flex-row items-center gap-10">
+            <div class="flex-1">
+              <h2 class="text-[1.5rem] sm:text-[1.8rem] font-bold text-primary tracking-tight mb-3">
+                Un doute, une question, une situation à clarifier ?
+              </h2>
+              <p class="text-content-light leading-relaxed mb-6 max-w-md">
+                Prenons le temps d'en discuter. Je vous propose un appel de 15 minutes, offert et sans engagement, pour faire le point ensemble.
+              </p>
+              <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                Appel de 15min offert
+                <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+            <div class="w-32 h-32 lg:w-36 lg:h-36 rounded-full bg-surface-alt flex-shrink-0 flex items-center justify-center shadow-md ring-4 ring-white">
+              <span class="text-content-light/40 text-xs">Photo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

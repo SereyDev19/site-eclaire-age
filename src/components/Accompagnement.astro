@@ -1,0 +1,66 @@
+---
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+
+const cards = [
+  {
+    title: "Une approche claire, structurée et engagée",
+    body: "Chaque accompagnement suit une méthodologie précise : un cadre accueillant, un objectif et une attention réelle aux résultats, pas une écoute passive avec \"on verra\"."
+  },
+  {
+    title: "Un travail en co-construction, avec vous et votre ado",
+    body: "Je n'ai pas \"la place de\". Je fais en sorte que chacun soit sincèrement impliqué dans le processus. Vous n'êtes pas un simple spectateur, mais un acteur clé : et c'est souvent ce qui change tout."
+  },
+  {
+    title: "Une compréhension fine du contexte de votre ado",
+    body: "Grâce à mon expertise en adolescence, j'explore les mécanismes de fonctionnement et du système scolaire. Je prends en compte les enjeux familiaux, sociaux et psychologiques. Cette prise en compte globale permet des avancées plus rapides et concrètes."
+  },
+  {
+    title: "Une communication simple et sans jargon",
+    body: "Je traduis les concepts complexes en mots simples. Vous comprenez ce qui se passe, pourquoi ça se fait, et comment cela peut aider votre ado."
+  },
+  {
+    title: "Une posture humaine, ancrée dans le quotidien",
+    body: "Je connais les défis des familles d'aujourd'hui : idées sociétales, charge mentale, multiplication des écrans... Mon rôle est de vous aider là où vous en êtes, sans jugement ni illusions."
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-surface-alt/50">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-4">
+        Un accompagnement différent, pensé pour les familles d'aujourd'hui
+      </h2>
+      <p class="text-content-light max-w-xl mx-auto leading-relaxed">
+        Vous cherchez un soutien psychologique qui soit à la fois professionnel, accessible et adapté à votre réalité ? Voici ce qui fait la singularité de mon approche.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {cards.map((card) => (
+        <div class="group bg-surface rounded-2xl border-2 border-primary/15 p-6 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col">
+          <h3 class="text-[0.95rem] font-bold text-content mb-3 leading-snug group-hover:text-primary transition-colors duration-300">{card.title}</h3>
+          <p class="text-sm text-content-light leading-relaxed flex-1 mb-4">{card.body}</p>
+          <a href="#" class="inline-flex items-center gap-1 text-sm text-primary font-medium hover:gap-2 transition-all duration-200 cursor-pointer">
+            En savoir plus
+            <ArrowRight class="w-3.5 h-3.5" />
+          </a>
+        </div>
+      ))}
+
+      <!-- Card CTA -->
+      <div class="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl border-2 border-primary/20 p-6 flex flex-col items-center justify-center text-center">
+        <div class="w-14 h-14 rounded-full bg-surface shadow-sm mb-4 flex items-center justify-center">
+          <span class="text-content-light/40 text-[0.65rem]">Photo</span>
+        </div>
+        <p class="text-sm text-content-light leading-relaxed mb-5">
+          Je vous propose un appel de 15min pour vérifier que mon accompagnement est approprié.
+        </p>
+        <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-xl text-sm font-medium shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          Je prends rdv
+          <ArrowRight class="w-3.5 h-3.5" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
