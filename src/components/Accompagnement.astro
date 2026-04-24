@@ -51,10 +51,10 @@ const USERS_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
       <div class="reveal-stagger grid grid-cols-1 sm:grid-cols-2 gap-[22px] content-start">
         {APPROACHES.map(({ n, title, body }) => (
           <div class="group bg-white rounded-[27px] border border-violet-200 p-8 relative hover:-translate-y-1 hover:shadow-[0_12px_34px_rgba(44,20,60,0.08)] transition-all duration-300 overflow-hidden">
-            <div class="font-bold text-[13px] tracking-[.12em] text-violet-500 mb-3" style="font-family: 'Epilogue Variable', sans-serif;">{n}</div>
+            <div class="font-bold text-[13px] tracking-[.12em] text-violet-500 mb-3" style="font-family: 'Epilogue', sans-serif;">{n}</div>
             <h3 class="font-bold text-[18px] leading-[1.3] text-ink mb-3" style="font-family: 'Poppins', sans-serif;">{title}</h3>
             <p class="text-[14.5px] leading-[1.55] text-ink-muted mb-4">{body}</p>
-            <a href="#" class="inline-flex items-center gap-1.5 font-bold text-[14px] text-violet-600 group-hover:gap-2.5 transition-all duration-200 no-underline cursor-pointer" style="font-family: 'Epilogue Variable', sans-serif;">
+            <a href="#" class="inline-flex items-center gap-1.5 font-bold text-[14px] text-violet-600 group-hover:gap-2.5 transition-all duration-200 no-underline cursor-pointer" style="font-family: 'Epilogue', sans-serif;">
               En savoir plus <Fragment set:html={ARROW_R} />
             </a>
           </div>
@@ -79,7 +79,7 @@ const USERS_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
             <p class="text-[14.5px] leading-[1.6] text-ink-muted mb-4">
               Grâce à mon expérience dans le monde de l'entreprise, de l'orientation et du système scolaire, je relie les enjeux éducatifs, sociaux et psychologiques. Cela me permet de poser les bonnes questions et de proposer un accompagnement vraiment ajusté.
             </p>
-            <a href="#" class="inline-flex items-center gap-1.5 font-bold text-[14px] text-violet-600 hover:gap-2.5 transition-all duration-200 no-underline cursor-pointer" style="font-family: 'Epilogue Variable', sans-serif;">
+            <a href="#" class="inline-flex items-center gap-1.5 font-bold text-[14px] text-violet-600 hover:gap-2.5 transition-all duration-200 no-underline cursor-pointer" style="font-family: 'Epilogue', sans-serif;">
               En savoir plus <Fragment set:html={ARROW_R} />
             </a>
           </div>
@@ -89,7 +89,7 @@ const USERS_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
         <div id="rdv" class="bg-white rounded-[27px] border border-violet-300 p-[26px] text-center shadow-[0_18px_40px_rgba(158,107,192,0.22)] flex flex-col items-center gap-3.5">
           <div
             class="w-16 h-16 rounded-full bg-center bg-cover shadow-[0_0_0_3px_white,0_0_0_4px_#e8c6ff]"
-            style="background-image: url('/images/claire-portrait.jpg')"
+            style="background-image: url('/images/Claire%20J-25.jpg')"
           ></div>
           <p class="text-[14.5px] leading-[1.5] text-ink-soft m-0">
             Je vous propose un <strong>appel de 15 min offert</strong> pour déterminer si un accompagnement est approprié.
@@ -97,7 +97,7 @@ const USERS_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
           <a
             href="#rdv"
             class="inline-flex items-center gap-2.5 px-7 py-[14px] bg-violet-500 text-white rounded-[999px] font-bold text-[16px] shadow-[0_8px_20px_rgba(158,107,192,0.35)] hover:bg-violet-600 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(158,107,192,0.48)] transition-all duration-300 cursor-pointer no-underline group"
-            style="font-family: 'Epilogue Variable', sans-serif;"
+            style="font-family: 'Epilogue', sans-serif;"
           >
             Je prends rdv <Fragment set:html={ARROW_R} />
           </a>
