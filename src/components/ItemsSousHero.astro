@@ -1,33 +1,40 @@
 ---
-const CHIPS = [
+const CARDS = [
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.3"/><path d="M15 20c0-2.5 1.8-4 4-4s3 1.5 3 4"/></svg>`,
-    label: '+1 700 jeunes accompagnés',
-    sub: 'en individuel',
+    color: "#9e6bc0",
+    photo: "/images/gar%C3%A7on%20qui%20ecrit.jpg",
+    alt: "Garçon qui écrit",
+    label: "+1 700 jeunes accompagnés",
+    sub: "en individuel",
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg>`,
-    label: 'Présentiel &amp; visio',
-    sub: 'selon vos besoins',
+    color: "#ff7c5c",
+    photo: "/images/ecran%20education.jpg",
+    alt: "Écran éducation",
+    label: "Des formules d'accompagnements adaptées",
+    sub: "pour tous les besoins",
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[22px] h-[22px]"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
-    label: '+7 ans d\'expérience',
-    sub: 'dans le milieu scolaire',
+    color: "#34c9a0",
+    photo: "/images/famille.jpg",
+    alt: "Famille",
+    label: "Accompagnement en présentiel et à distance",
+    sub: "selon vos besoins",
   },
 ];
 ---
 
-<div class="reveal-stagger max-w-[1290px] mx-auto px-12 -mt-7 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-  {CHIPS.map(({ icon, label, sub }) => (
-    <div class="bg-white border border-[rgba(158,107,192,0.28)] rounded-[18px] px-5 py-[18px] flex gap-3.5 items-center shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-      <div class="w-11 h-11 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600 flex-shrink-0">
-        <Fragment set:html={icon} />
-      </div>
-      <div class="font-semibold text-[14px] leading-[1.35] text-ink">
-        <span set:html={label} />
-        <br/>
-        <span class="font-normal text-ink-muted text-[12px]" set:html={sub} />
+<div class="reveal-stagger max-w-[1030px] mx-auto px-3 -mt-8 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+  {CARDS.map(({ color, photo, alt, label, sub }) => (
+    <div class="bg-white rounded-[8px] shadow-[0_6px_24px_rgba(44,20,60,0.10)] overflow-hidden">
+      <!-- Bande post-it -->
+      <div class="h-[10px] w-full flex-shrink-0" style={`background: ${color};`}></div>
+      <!-- Photo -->
+      <img src={photo} alt={alt} class="w-full h-auto block" />
+      <!-- Texte -->
+      <div class="px-5 pt-4 pb-5">
+        <p class="font-bold text-[15.5px] text-ink leading-[1.3] m-0" style="font-family: 'Poppins', sans-serif;">{label}</p>
+        <p class="text-[13px] text-ink-muted mt-1 m-0">{sub}</p>
       </div>
     </div>
   ))}

@@ -1,25 +1,25 @@
 ---
 const PROBLEMS = [
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[34px] h-[34px]"><path d="M7 18a5 5 0 1 1 .6-9.96A7 7 0 0 1 21 14a4 4 0 0 1-4 4H7z"/><path d="M8 21l1-2M12 21l1-2M16 21l1-2"/></svg>`,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[20px] h-[20px]"><path d="M7 18a5 5 0 1 1 .6-9.96A7 7 0 0 1 21 14a4 4 0 0 1-4 4H7z"/><path d="M8 21l1-2M12 21l1-2M16 21l1-2"/></svg>`,
     title: "« Il ne va pas bien… mais je ne sais pas dire pourquoi »",
     sub: "Un malaise diffus, difficile à nommer",
     body: "Les matins deviennent plus compliqués. Il semble ailleurs. Moins motivé… plus sensible… parfois éteint. Et vous restez avec cette sensation : quelque chose ne va pas… sans réussir à mettre des mots dessus.",
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[34px] h-[34px]"><path d="M4 5h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-5l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8 10h8M8 13h5"/></svg>`,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[20px] h-[20px]"><path d="M4 5h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-5l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8 10h8M8 13h5"/></svg>`,
     title: "« On n'arrive plus à se parler »",
     sub: "Quand les échanges deviennent tendus… ou inexistants",
     body: "La discussion s'arrête rapidement. Ou elle glisse vers un conflit. Parfois, il ne répond plus vraiment. Et vous vous demandez : qu'est-ce qui s'est passé entre nous ?",
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[34px] h-[34px]"><path d="M3 10l9-5 9 5-9 5-9-5z"/><path d="M6 12v5c0 1 3 2 6 2s6-1 6-2v-5"/><path d="M21 10v6"/></svg>`,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[20px] h-[20px]"><path d="M3 10l9-5 9 5-9 5-9-5z"/><path d="M6 12v5c0 1 3 2 6 2s6-1 6-2v-5"/><path d="M21 10v6"/></svg>`,
     title: "« Il semble perdu… et je ne comprends pas pourquoi »",
     sub: "Quand l'école ou l'avenir deviennent flous",
     body: "L'envie diminue. L'implication aussi. Et peu à peu… une difficulté à se projeter. Une question qui revient : est-ce qu'il est en train de décrocher… ou est-ce autre chose ?",
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" class="w-[34px] h-[34px]"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>`,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" class="w-[20px] h-[20px]"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>`,
     title: "« Je ne le reconnais plus vraiment »",
     sub: "Des réactions qui surprennent… et déstabilisent",
     body: "Par moments, il semble plus sensible. À d'autres… beaucoup plus fermé. Parfois à fleur de peau… parfois distant. Et vous vous surprenez à penser : ce n'est plus le même.",
@@ -44,13 +44,13 @@ const ARROW_UR = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" str
   <!-- Grille 2×2 -->
   <div class="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6">
     {PROBLEMS.map(({ icon, title, sub, body }) => (
-      <article class="group relative bg-white rounded-[27px] border border-violet-200 pt-[84px] px-[38px] pb-9 shadow-[0_1px_2px_rgba(44,20,60,0.04)] hover:-translate-y-1.5 hover:shadow-[0_12px_34px_rgba(44,20,60,0.08)] hover:border-violet-400 transition-all duration-300 overflow-hidden">
+      <article class="group relative bg-white rounded-[27px] border border-violet-200 pt-[84px] px-[38px] pb-9 shadow-[0_1px_2px_rgba(44,20,60,0.04)] hover:-translate-y-1.5 hover:shadow-[0_12px_34px_rgba(44,20,60,0.08)] hover:border-violet-400 transition-all duration-300">
         <!-- Radial hover glow -->
-        <div class="absolute inset-0 rounded-[27px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        <div class="absolute inset-0 rounded-[27px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden"
              style="background: radial-gradient(800px 300px at 50% -20%, #f4e6ff, transparent 55%);">
         </div>
         <!-- Icône centrée -->
-        <div class="problem-icon absolute left-1/2 -top-[42px] -translate-x-1/2 w-[84px] h-[84px] rounded-full flex items-center justify-center text-violet-600 shadow-[0_10px_24px_rgba(158,107,192,0.22)] group-hover:scale-[1.04] group-hover:-rotate-[6deg] transition-transform duration-300"
+        <div class="problem-icon absolute left-1/2 top-[20px] -translate-x-1/2 w-[50px] h-[50px] rounded-full flex items-center justify-center text-violet-600 shadow-[0_6px_16px_rgba(158,107,192,0.22)] group-hover:scale-[1.04] group-hover:-rotate-[6deg] transition-transform duration-300"
              style="background: radial-gradient(circle at 30% 30%, #eacbff, white 78%);">
           <Fragment set:html={icon} />
         </div>

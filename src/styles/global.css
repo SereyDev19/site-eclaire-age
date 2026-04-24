@@ -65,6 +65,7 @@
 .animate-float-b  { animation: floatB 11s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 32s linear infinite; }
 .animate-pulse-dot { animation: pulse-dot 2.2s infinite; }
+.animate-spin-border { animation: spin-slow 10s linear infinite; }
 
 /* Soulignement titre — classe utilitaire */
 .title-under {

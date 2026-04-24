@@ -1,20 +1,7 @@
 ---
 const ARROW_R = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 
-const LIST_ITEMS = [
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 mt-0.5 text-violet-600"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
-    text: "Ces moments où vous vous sentez perdu… ils sont déjà là. Et vous n'avez pas à attendre.",
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 mt-0.5 text-violet-600"><path d="M4 4h16v12H4z"/><path d="M8 20h8M12 16v4"/></svg>`,
-    text: "À travers mes contenus (Instagram et articles), vous pouvez déjà commencer à y voir plus clair.",
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-shrink-0 mt-0.5 text-violet-600"><path d="M12 2a7 7 0 0 0-7 7c0 4.5 7 13 7 13s7-8.5 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>`,
-    text: "Cabinet à Blagnac (31700) — proche tramway T1. Séances en visio également disponibles.",
-  },
-];
+
 ---
 
 <section class="py-[160px] max-w-[1290px] mx-auto px-10" id="local">
@@ -30,14 +17,28 @@ const LIST_ITEMS = [
         Un premier pas, accessible dès maintenant.
       </p>
 
-      <ul class="list-none p-0 mt-7 flex flex-col gap-3.5">
-        {LIST_ITEMS.map(({ icon, text }) => (
-          <li class="grid grid-cols-[24px_1fr] gap-3.5 items-start text-[15.5px] text-ink-soft leading-[1.5]">
-            <Fragment set:html={icon} />
-            {text}
-          </li>
-        ))}
-      </ul>
+      <div class="mt-6 flex flex-col gap-3 text-[15.5px] leading-[1.65] text-ink-soft">
+        <p class="m-0">
+          Aujourd'hui, mon accompagnement est encore en cours de création.<br />
+          Et ces moments où vous vous sentez perdu…<br />
+          <em class="not-italic font-medium text-ink">eux, ils sont déjà là.</em>
+        </p>
+        <p class="m-0">Alors pour l'instant, je propose autre chose&nbsp;:</p>
+        <ul class="list-none p-0 m-0 flex flex-col gap-1.5">
+          <li class="flex items-start gap-2"><span class="text-violet-500 font-bold flex-shrink-0">→</span> un espace pour comprendre</li>
+          <li class="flex items-start gap-2"><span class="text-violet-500 font-bold flex-shrink-0">→</span> mettre des mots</li>
+          <li class="flex items-start gap-2"><span class="text-violet-500 font-bold flex-shrink-0">→</span> regarder autrement ce que vous vivez</li>
+        </ul>
+        <p class="m-0">
+          À travers mes contenus (Instagram et articles),<br />
+          vous pouvez déjà commencer à y voir plus clair.<br />
+          Souvent à partir de situations très simples… des moments du quotidien que vous reconnaissez peut-être.
+        </p>
+        <p class="m-0 text-ink-muted italic">
+          Ces scènes où vous vous dites&nbsp;: <em class="not-italic font-semibold text-violet-600">«&nbsp;c'est exactement ça…&nbsp;»</em><br />
+          Et peut-être… mettre du sens là où tout semblait confus.
+        </p>
+      </div>
 
       <div class="flex flex-wrap gap-3 mt-8">
         <a

@@ -1,254 +1,320 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Header from '../components/Header.astro';
-import ArrowRight from '@lucide/astro/icons/arrow-right';
-import Check from '@lucide/astro/icons/check';
-import Heart from '@lucide/astro/icons/heart';
-import Shield from '@lucide/astro/icons/shield';
-import Sparkles from '@lucide/astro/icons/sparkles';
-import Users from '@lucide/astro/icons/users';
-import GraduationCap from '@lucide/astro/icons/graduation-cap';
-import BookOpen from '@lucide/astro/icons/book-open';
-import Brain from '@lucide/astro/icons/brain';
-import Handshake from '@lucide/astro/icons/handshake';
+import CTAFinal from '../components/CTAFinal.astro';
 
-const valeurs = [
-  {
-    icon: Heart,
-    title: "Bienveillance",
-    description: "Un regard chaleureux et sans jugement, pour que chacun se sente accueilli tel qu'il est."
-  },
-  {
-    icon: Shield,
-    title: "Engagement",
-    description: "Un suivi rigoureux, des objectifs clairs, et une implication sincère à chaque étape."
-  },
-  {
-    icon: Sparkles,
-    title: "Pragmatisme",
-    description: "Des outils concrets et adaptés, pas de théorie abstraite. Ce qui compte, c'est le résultat."
-  },
-  {
-    icon: Users,
-    title: "Co-construction",
-    description: "Chaque accompagnement se construit ensemble, avec l'ado et sa famille, au même niveau."
-  }
-];
+const ARROW_R = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const CHECK = `<svg viewBox="0 0 18 16" fill="currentColor" class="w-[13px] h-[11px] flex-shrink-0 mt-[3px]"><path d="M17.47.24c.57.4.7 1.17.28 1.72L7.47 15.49c-.22.3-.56.48-.94.5a1.1 1.1 0 0 1-1-.36L.38 10.72a1.24 1.24 0 0 1 0-1.74 1.17 1.17 0 0 1 1.82 0l4.08 3.9L15.68.51c.42-.55 1.22-.67 1.8-.27z"/></svg>`;
 
-const cadreCards = [
-  {
-    title: "Un espace sécurisé et confidentiel",
-    body: "Chaque séance se déroule dans un cadre protégé, en cabinet ou en visio, où la parole circule librement et en toute confiance."
-  },
-  {
-    title: "Une écoute active, pas passive",
-    body: "Je ne me contente pas d'écouter : je questionne, je reformule, je propose des pistes. L'objectif est d'avancer, pas de tourner en rond."
-  },
-  {
-    title: "Des objectifs définis ensemble",
-    body: "Dès le départ, nous posons un cadre clair : ce que vous attendez, ce qui est réaliste, et comment mesurer les progrès."
-  },
-  {
-    title: "Un rythme adapté à chacun",
-    body: "Pas de protocole rigide. La fréquence et la durée s'ajustent à la situation, aux besoins, et au rythme de votre adolescent."
-  }
-];
-
-const parcours = [
-  {
-    title: "Master en psychologie clinique",
-    body: "Spécialisation en psychopathologie de l'adolescent et du jeune adulte."
-  },
-  {
-    title: "7 ans en éducation nationale",
-    body: "Accompagnement d'élèves en difficulté, travail avec les équipes pédagogiques et les familles."
-  },
-  {
-    title: "Formations continues",
-    body: "TCC, thérapie systémique, gestion des émotions, prévention du harcèlement scolaire."
-  }
+const EXPS = [
+  "Plusieurs années dans le monde de l'entreprise (RH, gestion de projet)",
+  "Accompagnement d'adultes en transition professionnelle",
+  "Deux ans au sein de l'Éducation nationale (CIO, collèges, lycées, ULIS, SEGPA)",
+  "Travail en lien avec des équipes éducatives et médicales",
 ];
 
 const frontmatter = {
-  title: 'À propos — EclaireAge',
-  description: "Claire, psychologue clinicienne spécialisée dans l'accompagnement des adolescents et de leurs familles.",
+  title: 'À propos — Claire | EclaireAge',
+  description: "Je suis Claire, psychologue. Je travaille avec ces moments où, avec un ado… on ne sait plus trop quoi penser.",
 };
 ---
 
 <PageLayout frontmatter={frontmatter}>
-  <div slot="header" class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
-    <Header />
 
-    <section class="px-6 lg:px-8 pt-4 pb-20 md:pt-8 md:pb-28">
-      <div class="max-w-[1200px] mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div class="max-w-lg">
-            <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">À propos</p>
-            <h1 class="text-[2rem] sm:text-[2.4rem] lg:text-[2.75rem] font-bold leading-[1.2] tracking-tight text-content mb-6">
-              Je suis Claire, psychologue pour <span class="text-primary">ados & parents</span>
-            </h1>
-            <p class="text-content-light leading-relaxed">
-              Derrière EclaireAge, il y a un parcours, des convictions, et une envie sincère d'aider les familles à traverser l'adolescence plus sereinement.
+  <!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+  <section class="relative max-w-[1290px] mx-auto px-3 mt-6 pb-0">
+    <div class="relative bg-gradient-to-b from-[#faf7f2] to-[#fbfaf8] rounded-[27px] overflow-hidden px-8 md:px-16 pt-[72px] pb-[88px] grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-14 items-center min-h-[500px]">
+      <!-- Blob violet -->
+      <div class="absolute w-[160px] h-[160px] rounded-full -top-4 right-8 blur-[2px] animate-float-a pointer-events-none"
+           style="background: radial-gradient(circle at 30% 30%, #e8c6ff, #f4e6ff);"></div>
+
+      <!-- Colonne gauche -->
+      <div class="reveal">
+        <span class="kicker"><span class="bar"></span> À propos</span>
+        <h1 class="font-bold text-[clamp(38px,4.2vw,56px)] leading-[1.05] tracking-[-0.02em] text-violet-600 mb-5 text-balance" style="font-family: 'Poppins', sans-serif;">
+          Je suis Claire.
+        </h1>
+        <p class="text-[18px] leading-[1.55] text-ink-soft max-w-[520px] mb-4">
+          Et je travaille avec ces moments où, avec un ado… on ne sait plus trop quoi penser.
+        </p>
+        <p class="text-[15.5px] leading-[1.65] text-ink-muted max-w-[500px] mb-9">
+          Je ne travaille pas uniquement avec des adolescents. Je travaille avec ce qui se passe <em class="not-italic font-semibold text-violet-600">entre eux… et leurs parents</em> quand quelque chose devient flou.
+        </p>
+        <a
+          href="#qui-je-suis"
+          class="group inline-flex items-center gap-2.5 px-7 py-[14px] bg-violet-500 text-white rounded-[999px] font-bold text-[16px] shadow-[0_8px_20px_rgba(158,107,192,0.35)] hover:bg-violet-600 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(158,107,192,0.48)] transition-all duration-300 cursor-pointer no-underline"
+          style="font-family: 'Epilogue', sans-serif;"
+        >
+          En savoir plus
+          <Fragment set:html={ARROW_R} />
+        </a>
+      </div>
+
+      <!-- Colonne droite — photo -->
+      <div class="relative" style="aspect-ratio: 4/4.2; width: 100%;">
+        <div class="absolute w-[110px] h-[110px] rounded-full bottom-8 left-0 blur-[2px] animate-float-b opacity-80 pointer-events-none"
+             style="background: radial-gradient(circle at 30% 30%, #ff7c5c, #ffb5a0);"></div>
+        <div class="absolute w-[130px] h-[130px] rounded-full border border-dashed border-violet-400 -bottom-5 right-10 animate-spin-slow opacity-50 pointer-events-none"></div>
+        <div
+          class="absolute inset-[20px_0_0_30px] rounded-[33px] bg-center bg-cover shadow-[0_28px_60px_rgba(44,20,60,0.14)] z-10"
+          style="background-image: url('/images/Claire%20J-17.jpg')"
+        ></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUI JE SUIS ══════════════════════════════════════════════ -->
+  <section class="py-[120px] max-w-[1290px] mx-auto px-10" id="qui-je-suis">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-16 items-center max-w-[1180px] mx-auto">
+
+      <!-- Photo -->
+      <div class="reveal relative rounded-[33px] overflow-hidden shadow-[0_28px_60px_rgba(44,20,60,0.12)]" style="aspect-ratio: 4/5;">
+        <div class="w-full h-full bg-center bg-cover" style="background-image: url('/images/Claire%20J-7.jpg');"></div>
+        <!-- Badge -->
+        <div class="absolute bottom-6 left-6 bg-white rounded-[999px] px-4 py-2.5 flex items-center gap-2 font-bold text-[13px] text-violet-600 shadow-[0_8px_24px_rgba(44,20,60,0.12)]" style="font-family: 'Epilogue', sans-serif;">
+          <span class="w-2 h-2 rounded-full bg-violet-500 animate-pulse-dot"></span> Psychologue
+        </div>
+      </div>
+
+      <!-- Texte -->
+      <div class="reveal">
+        <span class="kicker"><span class="bar"></span> Qui je suis</span>
+        <h2 class="font-bold text-[clamp(28px,2.8vw,38px)] leading-[1.12] tracking-[-0.015em] text-ink mb-6 text-balance" style="font-family: 'Poppins', sans-serif;">
+          Ce qui m'a toujours <span class="title-under">intéressée</span>
+        </h2>
+        <div class="flex flex-col gap-4 text-[15.5px] leading-[1.7] text-ink-soft">
+          <p class="m-0">
+            Je suis psychologue. Mais ce qui m'a toujours intéressée… ce n'est pas seulement comprendre. C'est ce moment précis où quelqu'un se dit :
+          </p>
+          <p class="m-0 pl-4 border-l-2 border-violet-300 font-semibold text-violet-600 italic not-italic">
+            « je ne comprends plus »
+          </p>
+          <p class="m-0">
+            J'ai rencontré beaucoup d'adolescents. Et beaucoup de parents. Et souvent, ce que j'ai vu… ce n'était pas des «&nbsp;problèmes&nbsp;». C'était des situations… où chacun faisait comme il pouvait. Sans toujours réussir à se comprendre.
+          </p>
+          <ul class="list-none p-0 m-0 flex flex-col gap-1.5">
+            <li class="flex items-start gap-2.5 text-ink-muted">
+              <span class="text-violet-500 font-bold flex-shrink-0 mt-0.5">→</span>
+              Des adolescents qui vivent des choses… sans pouvoir les dire.
+            </li>
+            <li class="flex items-start gap-2.5 text-ink-muted">
+              <span class="text-violet-500 font-bold flex-shrink-0 mt-0.5">→</span>
+              Des parents qui observent… sans savoir comment les interpréter.
+            </li>
+            <li class="flex items-start gap-2.5 text-ink-muted">
+              <span class="text-violet-500 font-bold flex-shrink-0 mt-0.5">→</span>
+              Et entre les deux… du flou.
+            </li>
+          </ul>
+          <p class="m-0 font-medium text-ink">
+            C'est là… que je me situe. Et souvent… rien que le fait de regarder autrement change déjà quelque chose.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MA VISION ═════════════════════════════════════════════════ -->
+  <section class="py-0 pb-[80px]">
+    <div class="bg-[#f6f3ef] rounded-[27px] mx-3 px-[72px] py-[100px] relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-[340px] h-[340px] rounded-full pointer-events-none"
+           style="background: radial-gradient(circle, #f4e6ff, transparent 70%);"></div>
+
+      <div class="reveal max-w-[820px] mx-auto text-center">
+        <span class="kicker"><span class="bar"></span> Ma vision</span>
+        <h2 class="font-bold text-[clamp(28px,3vw,40px)] leading-[1.1] tracking-[-0.015em] text-ink mb-6 text-balance" style="font-family: 'Poppins', sans-serif;">
+          Ce moment entre <span class="title-under">«&nbsp;ça va&nbsp;»</span> et «&nbsp;ça ne va plus&nbsp;»
+        </h2>
+        <p class="text-[16.5px] leading-[1.7] text-ink-muted mb-8 max-w-[660px] mx-auto">
+          Il y a un moment particulier. Pas une crise. Pas quelque chose de clairement identifié. Mais quelque chose qui change.<br />
+          <em class="not-italic font-semibold text-violet-600">Vous le sentez… sans pouvoir l'expliquer.</em>
+        </p>
+        <div class="bg-white rounded-[20px] p-8 shadow-[0_4px_20px_rgba(44,20,60,0.06)] text-left max-w-[660px] mx-auto">
+          <p class="text-[15px] leading-[1.75] text-ink-soft m-0">
+            C'est ce moment que j'appelle la <strong class="text-violet-600">zone grise</strong>. Et c'est souvent là… que tout commence à se jouer.
+          </p>
+          <ul class="list-none p-0 mt-4 m-0 flex flex-col gap-2">
+            <li class="flex items-start gap-2.5 text-[14.5px] text-ink-muted">
+              <span class="text-violet-500 font-bold flex-shrink-0">→</span> Comprendre… sans aller trop vite.
+            </li>
+            <li class="flex items-start gap-2.5 text-[14.5px] text-ink-muted">
+              <span class="text-violet-500 font-bold flex-shrink-0">→</span> Rester fidèle à ce qui se joue… sans chercher à simplifier.
+            </li>
+            <li class="flex items-start gap-2.5 text-[14.5px] text-ink-muted">
+              <span class="text-violet-500 font-bold flex-shrink-0">→</span> Laisser à chacun sa place… sans prendre la décision à sa place.
+            </li>
+            <li class="flex items-start gap-2.5 text-[14.5px] text-ink-muted">
+              <span class="text-violet-500 font-bold flex-shrink-0">→</span> Et avancer… sans perdre l'équilibre.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MON APPROCHE ══════════════════════════════════════════════ -->
+  <section class="py-[80px]">
+    <div class="bg-[#e4d2d2] rounded-[27px] mx-3 px-[72px] py-[100px] relative overflow-hidden">
+      <div class="reveal-stagger grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-[1100px] mx-auto">
+
+        <!-- Texte -->
+        <div>
+          <span class="kicker" style="background: white;"><span class="bar"></span> Mon approche</span>
+          <h2 class="font-bold text-[clamp(28px,2.8vw,38px)] leading-[1.12] tracking-[-0.015em] text-ink mb-5 text-balance" style="font-family: 'Poppins', sans-serif;">
+            Regarder autrement, <span class="title-under">à partir de ce que vous vivez</span>
+          </h2>
+          <div class="flex flex-col gap-4 text-[15.5px] leading-[1.7] text-ink-soft">
+            <p class="m-0">
+              Je ne pars pas d'un problème. Je pars de ce que vous vivez. De ces moments du quotidien où vous vous demandez :
+            </p>
+            <ul class="list-none p-0 m-0 flex flex-col gap-1.5">
+              <li class="flex items-start gap-2.5"><span class="text-violet-500 font-bold flex-shrink-0">→</span> «&nbsp;est-ce que c'est normal ?&nbsp;»</li>
+              <li class="flex items-start gap-2.5"><span class="text-violet-500 font-bold flex-shrink-0">→</span> «&nbsp;est-ce que je dois m'inquiéter ?&nbsp;»</li>
+            </ul>
+            <p class="m-0">
+              Je ne cherche pas à répondre à votre place. Je vous aide à regarder autrement.
+            </p>
+            <p class="m-0 font-medium text-ink">
+              Ce qui se passe ne concerne jamais une seule personne. Et souvent… c'est en regardant ensemble que les choses deviennent plus claires.
             </p>
           </div>
-          <div class="relative">
-            <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-primary/5 rounded-[2rem] rotate-2"></div>
-            <div class="aspect-[4/3] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-lg">
-              <span class="text-content-light/40 text-sm">Photo portrait</span>
-            </div>
-          </div>
+        </div>
+
+        <!-- Photo -->
+        <div class="relative rounded-[27px] overflow-hidden shadow-[0_28px_60px_rgba(44,20,60,0.12)]" style="aspect-ratio: 4/4.5;">
+          <div class="w-full h-full bg-center bg-cover" style="background-image: url('/images/Claire%20J-18.jpg');"></div>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- Section : Mon histoire -->
-    <section class="py-16 md:py-24">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div>
-            <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
-              Je m'appelle Claire, et si je suis psychologue aujourd'hui, ce n'est pas un hasard
-            </h2>
-            <div class="space-y-4 text-content-light leading-relaxed">
-              <p>
-                Très tôt, j'ai été sensible aux dynamiques familiales et aux difficultés que traversent les adolescents. Après un parcours en psychologie clinique, j'ai travaillé pendant sept ans au sein de l'éducation nationale, au contact direct des élèves, des parents et des équipes pédagogiques.
-              </p>
-              <p>
-                Cette expérience de terrain m'a appris une chose essentielle : pour accompagner un adolescent, il faut comprendre tout son écosystème — sa famille, son école, ses peurs, ses rêves. C'est cette vision globale qui guide chacune de mes séances.
-              </p>
-            </div>
-          </div>
-          <div class="aspect-[3/4] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-sm">
-            <span class="text-content-light/40 text-sm">Photo</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- ═══ PARCOURS ══════════════════════════════════════════════════ -->
+  <section class="py-[80px]">
+    <div class="bg-[#2c1c3c] rounded-[27px] mx-3 px-[72px] py-[100px] relative overflow-hidden">
+      <div class="absolute -right-[100px] -top-[100px] w-[380px] h-[380px] rounded-full pointer-events-none"
+           style="background: radial-gradient(circle, rgba(158,107,192,0.25), transparent 65%);"></div>
 
-    <!-- Section : Redonner du sens -->
-    <section class="py-16 md:py-20 bg-surface-alt/50">
-      <div class="max-w-[700px] mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
-          Redonner du sens, du lien, des repères.
+      <div class="reveal text-center mb-14">
+        <span class="kicker" style="background: rgba(255,255,255,0.08); color: rgba(232,198,255,0.9); border-color: rgba(255,255,255,0.1);">
+          <span class="bar" style="background: #e8c6ff;"></span> Parcours
+        </span>
+        <h2 class="font-bold text-[clamp(28px,2.8vw,38px)] leading-[1.12] tracking-[-0.015em] text-white mb-4 text-balance" style="font-family: 'Poppins', sans-serif;">
+          Un parcours construit <span style="color: #e8c6ff;">autour de la relation</span>
         </h2>
-        <p class="text-content-light leading-relaxed">
-          Mon rôle, c'est de créer un espace où l'adolescent peut se poser, se dire, et être entendu. Où les parents trouvent des réponses concrètes et un soutien sincère. Où la famille, dans son ensemble, retrouve une dynamique plus apaisée. Ce n'est pas de la magie — c'est du travail, de l'écoute, et une méthodologie adaptée à chaque situation.
+        <p class="text-white/70 text-[15.5px] leading-[1.6] max-w-[580px] mx-auto">
+          Au fond, une même attention&nbsp;: comprendre ce que vivent les personnes… et ce qui se joue dans leurs relations.
         </p>
       </div>
-    </section>
 
-    <!-- Section : Valeurs fondatrices -->
-    <section class="py-16 md:py-24">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
-          Mes valeurs fondatrices
+      <div class="reveal-stagger grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
+
+        <!-- Formation -->
+        <div class="bg-white/8 rounded-[20px] border border-white/10 p-8">
+          <div class="text-[11px] font-bold tracking-[.14em] uppercase text-[#e8c6ff] mb-4" style="font-family: 'Epilogue', sans-serif;">Formation</div>
+          <ul class="list-none p-0 m-0 flex flex-col gap-3.5">
+            <li class="flex items-start gap-3 text-[14.5px] text-white/80 leading-[1.55]">
+              <span class="w-5 h-5 rounded-full bg-violet-500/30 text-[#e8c6ff] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Fragment set:html={CHECK} />
+              </span>
+              Psychologue diplômée — Master 2 en Psychologie de l'Éducation et de la Formation (parcours Accompagnement Professionnel)
+            </li>
+            <li class="flex items-start gap-3 text-[14.5px] text-white/80 leading-[1.55]">
+              <span class="w-5 h-5 rounded-full bg-violet-500/30 text-[#e8c6ff] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Fragment set:html={CHECK} />
+              </span>
+              Inscrite au registre Adeli
+            </li>
+            <li class="flex items-start gap-3 text-[14.5px] text-white/80 leading-[1.55]">
+              <span class="w-5 h-5 rounded-full bg-violet-500/30 text-[#e8c6ff] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Fragment set:html={CHECK} />
+              </span>
+              Inscrite au RPPS (Répertoire Partagé des Professionnels de Santé)
+            </li>
+          </ul>
+        </div>
+
+        <!-- Expériences -->
+        <div class="bg-white/8 rounded-[20px] border border-white/10 p-8">
+          <div class="text-[11px] font-bold tracking-[.14em] uppercase text-[#e8c6ff] mb-4" style="font-family: 'Epilogue', sans-serif;">Expériences</div>
+          <ul class="list-none p-0 m-0 flex flex-col gap-3.5">
+            {EXPS.map((exp) => (
+              <li class="flex items-start gap-3 text-[14.5px] text-white/80 leading-[1.55]">
+                <span class="w-5 h-5 rounded-full bg-violet-500/30 text-[#e8c6ff] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Fragment set:html={CHECK} />
+                </span>
+                {exp}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Note de bas -->
+      <p class="reveal text-center text-white/45 text-[13.5px] leading-[1.6] mt-10 max-w-[680px] mx-auto">
+        Ces expériences m'ont amenée à travailler avec des publics, des contextes et des problématiques variés. Et progressivement… une manière de voir s'est dessinée : les situations <em class="not-italic font-medium text-white/65">prennent sens dans un ensemble… et dans une relation.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ POURQUOI ECLAIREAGE ═══════════════════════════════════════ -->
+  <section class="py-[80px] max-w-[1290px] mx-auto px-3">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-14 items-center max-w-[1100px] mx-auto">
+
+      <!-- Photo -->
+      <div class="reveal relative rounded-[27px] overflow-hidden shadow-[0_28px_60px_rgba(44,20,60,0.12)]" style="aspect-ratio: 4/4.5;">
+        <div class="w-full h-full bg-center bg-cover" style="background-image: url('/images/Claire%20J-29.jpg');"></div>
+        <div class="absolute top-5 right-5 bg-white rounded-[999px] px-4 py-2 flex items-center gap-2 font-bold text-[12px] text-violet-600 shadow-[0_8px_24px_rgba(44,20,60,0.10)]" style="font-family: 'Epilogue', sans-serif;">
+          ✨ Éclaire'Âge
+        </div>
+      </div>
+
+      <!-- Texte -->
+      <div class="reveal">
+        <span class="kicker"><span class="bar"></span> Pourquoi Éclaire'Âge</span>
+        <h2 class="font-bold text-[clamp(28px,2.8vw,38px)] leading-[1.12] tracking-[-0.015em] text-ink mb-5 text-balance" style="font-family: 'Poppins', sans-serif;">
+          Pourquoi <span class="title-under">Éclaire'Âge</span> existe
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {valeurs.map(({ icon: Icon, title, description }) => (
-            <div class="group text-center">
-              <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-primary/8 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                <Icon class="w-6 h-6 text-primary" />
-              </div>
-              <h3 class="font-bold text-content mb-2">{title}</h3>
-              <p class="text-sm text-content-light leading-relaxed">{description}</p>
-            </div>
-          ))}
-        </div>
+        <p class="text-[15.5px] leading-[1.7] text-ink-muted mb-3">
+          <em class="not-italic font-semibold text-violet-600">Un espace pour comprendre ce qui se joue… quand tout devient un peu flou.</em>
+        </p>
+        <p class="text-[15.5px] leading-[1.7] text-ink-soft mb-6">
+          Parce que beaucoup de familles attendent trop longtemps. Pas par choix. Mais parce qu'elles ne savent pas. Pas encore.
+        </p>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5 mb-8">
+          <li class="flex items-start gap-2.5 text-[15px] text-ink-soft">
+            <span class="text-violet-500 font-bold flex-shrink-0 mt-0.5">→</span>
+            Comprendre avant que ça ne s'installe
+          </li>
+          <li class="flex items-start gap-2.5 text-[15px] text-ink-soft">
+            <span class="text-violet-500 font-bold flex-shrink-0 mt-0.5">→</span>
+            Regarder avant d'agir
+          </li>
+        </ul>
+        <a
+          href="/contact"
+          class="group inline-flex items-center gap-2.5 px-7 py-[14px] bg-violet-500 text-white rounded-[999px] font-bold text-[16px] shadow-[0_8px_20px_rgba(158,107,192,0.35)] hover:bg-violet-600 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(158,107,192,0.48)] transition-all duration-300 cursor-pointer no-underline"
+          style="font-family: 'Epilogue', sans-serif;"
+        >
+          Me contacter <Fragment set:html={ARROW_R} />
+        </a>
+        <p class="text-[13px] text-ink-muted mt-3">
+          Même si vous ne savez pas encore exactement pourquoi.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Section : Un cadre clair -->
-    <section class="py-16 md:py-24 bg-surface">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight text-center mb-14">
-          Un cadre clair, une écoute vraie, pour avancer ensemble
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {cadreCards.map((card) => (
-            <div class="group bg-surface rounded-2xl border-2 border-primary/15 p-6 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-              <h3 class="text-[0.95rem] font-bold text-content mb-3 leading-snug group-hover:text-primary transition-colors duration-300">{card.title}</h3>
-              <p class="text-sm text-content-light leading-relaxed">{card.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+  <!-- ═══ CTA ═══════════════════════════════════════════════════════ -->
+  <CTAFinal />
 
-    <!-- Section : Formation -->
-    <section class="py-16 md:py-24 bg-primary overflow-hidden relative">
-      <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
-
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
-        <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-white tracking-tight text-center mb-12">
-          Une formation solide, un parcours transversal
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {parcours.map((item, i) => (
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-4">
-                {i === 0 ? <GraduationCap class="w-5 h-5 text-white" /> : i === 1 ? <BookOpen class="w-5 h-5 text-white" /> : <Brain class="w-5 h-5 text-white" />}
-              </div>
-              <h3 class="font-bold text-white mb-2">{item.title}</h3>
-              <p class="text-sm text-white/70 leading-relaxed">{item.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Section : EclaireAge est né... -->
-    <section class="py-16 md:py-24">
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div>
-            <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
-              EclaireAge est né d'un besoin profond : faire les choses autrement.
-            </h2>
-            <div class="space-y-4 text-content-light leading-relaxed mb-8">
-              <p>
-                Après des années à accompagner des jeunes dans des cadres institutionnels, j'ai voulu créer un espace plus libre, plus souple, plus humain. Un espace où chaque famille est écoutée dans sa singularité, sans protocole rigide ni liste d'attente interminable.
-              </p>
-              <p>
-                EclaireAge, c'est la promesse d'un accompagnement sur-mesure, ancré dans le réel, qui prend en compte l'adolescent, ses parents, et toute la complexité de ce qu'ils traversent.
-              </p>
-            </div>
-            <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-              Découvrir les services
-              <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </a>
-          </div>
-          <div class="aspect-[4/3] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-sm">
-            <span class="text-content-light/40 text-sm">Photo</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-16 md:py-24 relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary-light/20 via-primary/10 to-primary-light/20"></div>
-      <div class="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
-        <div class="bg-surface rounded-3xl shadow-xl px-8 py-10 md:px-14 md:py-12 border border-outline/20">
-          <div class="flex flex-col lg:flex-row items-center gap-10">
-            <div class="flex-1">
-              <h2 class="text-[1.5rem] sm:text-[1.8rem] font-bold text-primary tracking-tight mb-3">
-                Un doute, une question, une situation à clarifier ?
-              </h2>
-              <p class="text-content-light leading-relaxed mb-6 max-w-md">
-                Prenons le temps d'en discuter. Je vous propose un appel de 15 minutes, offert et sans engagement, pour faire le point ensemble.
-              </p>
-              <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-                Appel de 15min offert
-                <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-            </div>
-            <div class="w-32 h-32 lg:w-36 lg:h-36 rounded-full bg-surface-alt flex-shrink-0 flex items-center justify-center shadow-md ring-4 ring-white">
-              <span class="text-content-light/40 text-xs">Photo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 </PageLayout>
+
+<script>
+  // Animation titre mot par mot
+  const h1 = document.querySelector('h1');
+  if (h1) {
+    const words = (h1.textContent || '').trim().split(' ');
+    h1.innerHTML = words.map((w, i) =>
+      `<span class="inline-block opacity-0 translate-y-5" style="animation: wordUp .7s cubic-bezier(.22,1,.36,1) ${i * 60}ms forwards">${w}&nbsp;</span>`
+    ).join('');
+  }
+</script>

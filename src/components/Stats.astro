@@ -1,8 +1,24 @@
 ---
-const STATS = [
-  { value: 1700, suffix: "+", label: "adolescents rencontrés", sub: "En collèges, lycées et CIO" },
-  { value: 7, suffix: "+", label: "années d'expérience", sub: "Auprès des familles" },
-  { value: 100, suffix: "%", label: "situations uniques", sub: "Toujours un point de départ commun" },
+const ITEMS = [
+  {
+    type: "number",
+    value: 1700,
+    suffix: "+",
+    label: "adolescents rencontrés",
+    sub: "En collèges, lycées et CIO",
+  },
+  {
+    type: "text",
+    text: "Plusieurs années",
+    label: "d'accompagnement auprès des familles",
+    sub: "Suivi individuel et guidance parentale",
+  },
+  {
+    type: "text",
+    text: "En lien",
+    label: "avec des équipes éducatives et médicales",
+    sub: "Une approche connectée au terrain",
+  },
 ];
 ---
 
@@ -26,15 +42,21 @@ const STATS = [
       </p>
     </div>
 
-    <!-- Chiffres -->
+    <!-- Items -->
     <div class="reveal-stagger grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-[900px] mx-auto">
-      {STATS.map(({ value, suffix, label, sub }) => (
+      {ITEMS.map((item) => (
         <div class="text-center">
-          <div class="font-bold text-[clamp(44px,5vw,64px)] leading-none tracking-[-0.03em] text-white mb-2" style="font-family: 'Poppins', sans-serif;">
-            <span class="stat-counter" data-target={value}>{value}</span>{suffix}
-          </div>
-          <div class="font-semibold text-[15px] text-white/90 mb-1" style="font-family: 'Epilogue', sans-serif;">{label}</div>
-          <div class="text-[13px] text-white/50">{sub}</div>
+          {item.type === "number" ? (
+            <div class="font-bold text-[clamp(44px,5vw,64px)] leading-none tracking-[-0.03em] text-white mb-2" style="font-family: 'Poppins', sans-serif;">
+              <span class="stat-counter" data-target={item.value}>{item.value}</span>{item.suffix}
+            </div>
+          ) : (
+            <div class="font-bold text-[clamp(22px,2.4vw,30px)] leading-[1.2] tracking-[-0.02em] text-white mb-2" style="font-family: 'Poppins', sans-serif; color: #e8c6ff;">
+              {item.text}
+            </div>
+          )}
+          <div class="font-semibold text-[14px] text-white/90 mb-1 leading-[1.4]" style="font-family: 'Epilogue', sans-serif;">{item.label}</div>
+          <div class="text-[12.5px] text-white/50">{item.sub}</div>
         </div>
       ))}
     </div>
