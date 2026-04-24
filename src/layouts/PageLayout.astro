@@ -31,15 +31,23 @@ const baseProps = {
 ---
 
 <BaseLayout {...baseProps}>
-  <Header />
-  <main id="main-content" class="bg-surface">
-    <article class="py-12 md:py-16">
-      <div class="container">
-        <div class="max-w-4xl mx-auto">
-          <slot />
-        </div>
-      </div>
-    </article>
+  <slot name="header"><Header /></slot>
+  <main id="main-content">
+    <slot />
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  // Scroll reveal global — active .reveal et .reveal-stagger sur toute la page
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+</script>

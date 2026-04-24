@@ -1,53 +1,101 @@
 ---
-import ArrowRight from '@lucide/astro/icons/arrow-right';
-import Quote from '@lucide/astro/icons/quote';
 ---
 
-<section class="px-6 lg:px-8 pt-4 pb-20 md:pt-8 md:pb-28">
-  <div class="max-w-[1200px] mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+<section id="accueil" class="relative max-w-[1290px] mx-auto px-3 mt-6">
+  <!-- Carte hero principale -->
+  <div class="relative bg-gradient-to-b from-[#faf7f2] to-[#fbfaf8] rounded-[27px] overflow-hidden px-8 md:px-16 pt-[72px] pb-[88px] grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-14 items-center min-h-[580px]">
 
-      <!-- Texte -->
-      <div class="max-w-lg">
-        <h1 class="text-[2rem] sm:text-[2.4rem] lg:text-[2.75rem] font-bold leading-[1.2] tracking-tight text-content mb-6">
-          Je vous aide à traverser l'adolescence avec plus de <span class="text-primary">clarté</span>, de <span class="text-primary">calme</span> et de <span class="text-primary">lien</span>.
-        </h1>
+    <!-- Colonne gauche -->
+    <div>
+      <!-- Eyebrow -->
+      <div class="inline-flex items-center gap-2.5 font-medium text-[13px] tracking-[.14em] uppercase text-violet-600 mb-7">
+        <span class="w-2 h-2 rounded-full bg-violet-500 shadow-[0_0_0_4px_rgba(158,107,192,0.18)] animate-pulse-dot"></span>
+        Psychologue • Blagnac &amp; visio
+      </div>
 
-        <p class="text-content-light leading-relaxed mb-8">
-          Psychologue pour ados &amp; parents — Des séances pensées pour vous aider à comprendre ce qui se joue, et avancer ensemble dans la même direction.
-        </p>
+      <!-- Titre animé mot par mot -->
+      <h1 id="hero-title" class="font-bold text-[clamp(38px,4.2vw,56px)] leading-[1.05] tracking-[-0.02em] text-violet-600 mb-6 text-balance" style="font-family: 'Poppins', sans-serif;">
+        Je vous aide à traverser l'adolescence avec plus de clarté, de calme et de lien.
+      </h1>
 
+      <!-- Sous-titre -->
+      <p class="text-[17px] leading-[1.55] text-ink-soft max-w-[520px] mb-9">
+        Psychologue pour ados &amp; parents — Des séances pensées pour vous aider à comprendre ce qui se joue, et avancer ensemble dans la même direction.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-3.5">
         <a
-          href="#contact"
-          class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+          href="#rdv"
+          class="inline-flex items-center gap-2.5 px-7 py-[14px] bg-violet-500 text-white rounded-[999px] font-bold text-[16px] shadow-[0_8px_20px_rgba(158,107,192,0.35)] hover:bg-violet-600 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(158,107,192,0.48)] transition-all duration-300 cursor-pointer no-underline group"
+          style="font-family: 'Epilogue Variable', sans-serif;"
         >
-          En savoir plus
-          <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          Prendre rendez-vous
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
         </a>
-
-        <!-- Témoignage -->
-        <div class="mt-12 relative bg-surface-alt/60 rounded-2xl p-5 border border-outline/40">
-          <Quote class="w-5 h-5 text-primary/30 absolute top-4 left-4" />
-          <div class="flex gap-3 items-start pl-4">
-            <div class="w-10 h-10 rounded-full bg-primary/10 flex-shrink-0 mt-0.5"></div>
-            <p class="text-[0.82rem] text-content-light italic leading-relaxed">
-              Grâce à l'accompagnement de Claire, mon fils a enfin retrouvé confiance en lui et une vraie motivation pour ses études. En quelques séances, il a clarifié ses envies et trouvé une voie qui lui correspond vraiment.
-            </p>
-          </div>
-        </div>
+        <a
+          href="#approche"
+          class="inline-flex items-center gap-2.5 px-[26px] py-[12px] bg-transparent text-violet-600 border-2 border-violet-500 rounded-[999px] font-bold text-[16px] hover:bg-violet-500 hover:text-white hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline"
+          style="font-family: 'Epilogue Variable', sans-serif;"
+        >
+          Découvrir l'approche
+        </a>
       </div>
 
-      <!-- Image -->
-      <div class="relative">
-        <!-- Décor violet -->
-        <div class="absolute -right-3 top-6 bottom-6 w-1.5 rounded-full bg-gradient-to-b from-primary to-primary-light hidden lg:block"></div>
-        <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-primary/5 rounded-[2rem] rotate-2"></div>
-
-        <div class="aspect-[4/3] rounded-2xl bg-surface-alt overflow-hidden flex items-center justify-center shadow-lg">
-          <span class="text-content-light/50 text-sm">Photo hero</span>
-        </div>
+      <!-- Témoignage -->
+      <div class="mt-[52px] pt-7 border-t border-black/8 grid grid-cols-[44px_1fr] gap-3.5 items-start max-w-[560px]">
+        <div
+          class="w-11 h-11 rounded-full bg-center bg-cover shadow-[0_0_0_3px_white,0_0_0_4px_rgba(232,198,255,1)] flex-shrink-0"
+          style="background-image: url('/images/testimonial-avatar.jpg')"
+        ></div>
+        <blockquote class="m-0">
+          <p class="font-light italic text-[14.5px] leading-[1.55] text-ink-soft m-0" style="font-family: 'Poppins', sans-serif;">
+            « Grâce à l'accompagnement de Claire, mon fils a enfin retrouvé confiance en lui et une vraie motivation pour ses études. En quelques séances, il a clarifié ses envies et trouvé une voie qui lui correspond vraiment. »
+          </p>
+          <cite class="not-italic font-medium text-[12px] tracking-[.08em] uppercase mt-2 block text-violet-600">
+            Sandrine, maman de Léo (16 ans)
+          </cite>
+        </blockquote>
       </div>
+    </div>
 
+    <!-- Colonne droite — photo + décorations -->
+    <div class="relative" style="aspect-ratio: 4/4.2; width: 100%;">
+      <!-- Blob violet -->
+      <div class="absolute w-[180px] h-[180px] rounded-full -top-2.5 right-0 blur-[2px] animate-float-a"
+           style="background: radial-gradient(circle at 30% 30%, #e8c6ff, #f4e6ff);">
+      </div>
+      <!-- Blob orange -->
+      <div class="absolute w-[110px] h-[110px] rounded-full bottom-8 left-0 blur-[2px] animate-float-b opacity-90"
+           style="background: radial-gradient(circle at 30% 30%, #ff7c5c, #ffb5a0);">
+      </div>
+      <!-- Anneau -->
+      <div class="absolute w-[140px] h-[140px] rounded-full border border-dashed border-violet-400 -bottom-5 right-10 animate-spin-slow opacity-60"></div>
+      <!-- Photo -->
+      <div
+        class="absolute inset-[20px_0_0_30px] rounded-[33px] bg-center bg-cover shadow-[0_28px_60px_rgba(44,20,60,0.14)] z-10"
+        style="background-image: url('/images/hero-right.jpg')"
+      ></div>
     </div>
   </div>
 </section>
+
+<script>
+  // Animation mot par mot du titre
+  const titleEl = document.getElementById('hero-title');
+  if (titleEl) {
+    const text = titleEl.textContent || '';
+    const words = text.trim().split(' ');
+    titleEl.innerHTML = words.map((w, i) =>
+      `<span class="inline-block opacity-0 translate-y-5" style="animation: wordUp .7s cubic-bezier(.22,1,.36,1) ${i * 50}ms forwards">${w}&nbsp;</span>`
+    ).join('');
+  }
+</script>
+
+<style>
+  @keyframes wordUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

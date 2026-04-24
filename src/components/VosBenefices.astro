@@ -1,85 +1,98 @@
 ---
-import Check from '@lucide/astro/icons/check';
-import ArrowRight from '@lucide/astro/icons/arrow-right';
+const CHECK = `<svg viewBox="0 0 18 16" fill="currentColor" class="w-[14px] h-[12px]"><path d="M17.47.24c.57.4.7 1.17.28 1.72L7.47 15.49c-.22.3-.56.48-.94.5a1.1 1.1 0 0 1-1-.36L.38 10.72a1.24 1.24 0 0 1 0-1.74 1.17 1.17 0 0 1 1.82 0l4.08 3.9L15.68.51c.42-.55 1.22-.67 1.8-.27z"/></svg>`;
+const ARROW_R = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const HEART = `<svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg>`;
+
+const BENEFITS_MAIN = [
+  { title: "Vous retrouvez un climat familial apaisé", body: "Moins de tensions, plus de compréhension mutuelle, et une communication qui redevient possible." },
+  { title: "Vous avez les clés pour comprendre les vrais enjeux derrière les symptômes", body: "Je vous aide à décoder les signaux faibles, à comprendre ce que votre ado essaie (maladroitement) d'exprimer." },
+];
+const BENEFITS_ALSO = [
+  { title: "(Re)donner confiance à votre adolescent", body: "Chaque accompagnement vise à renforcer l'estime de soi et l'autonomie du jeune, à son rythme." },
+  { title: "Trouver des repères concrets pour avancer", body: "Des outils, des pistes, des éclairages adaptés à votre situation, pour sortir de l'impuissance." },
+];
 ---
 
-<section class="bg-surface-warm py-16 md:py-24">
-  <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
+<section class="py-10">
+  <div class="bg-[#e4d2d2] rounded-[27px] mx-3 px-[72px] py-[100px] relative overflow-hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-[1180px] mx-auto">
 
-    <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-12">
-      Vers une transformation
-    </h2>
+      <!-- Colonne gauche : texte -->
+      <div class="reveal">
+        <span class="kicker" style="background: white;"><span class="bar"></span> Vers une transformation</span>
+        <h2 class="font-bold text-[clamp(30px,3vw,40px)] leading-[1.12] tracking-[-0.015em] text-ink mb-3 text-balance" style="font-family: 'Poppins', sans-serif;">
+          Suite à notre accompagnement, <span class="title-under">ce qui change concrètement</span>
+        </h2>
+        <p class="text-[16.5px] leading-[1.6] text-ink-muted text-left max-w-none">
+          Des résultats ressentis au quotidien, pour l'ado comme pour les parents.
+        </p>
 
-    <!-- Bloc 1 -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 lg:mb-20">
-      <div>
-        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-6">Suite à notre accompagnement,</p>
-
-        <div class="space-y-6">
-          <div class="flex gap-4">
-            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
-              <Check class="w-3.5 h-3.5 text-white" />
+        <!-- Bénéfices principaux -->
+        <div class="mt-[34px]">
+          {BENEFITS_MAIN.map(({ title, body }) => (
+            <div class="grid grid-cols-[28px_1fr] gap-3.5 py-3.5 border-b border-black/6 last:border-0">
+              <div class="w-7 h-7 rounded-full bg-white text-violet-600 flex items-center justify-center shadow-[0_1px_2px_rgba(44,20,60,0.04)] flex-shrink-0">
+                <Fragment set:html={CHECK} />
+              </div>
+              <div>
+                <h4 class="font-bold text-[15.5px] leading-[1.35] text-ink mb-1" style="font-family: 'Poppins', sans-serif;">{title}</h4>
+                <p class="text-[14.5px] leading-[1.5] text-ink-soft m-0">{body}</p>
+              </div>
             </div>
-            <div>
-              <p class="font-bold text-content mb-1">Vous retrouvez un climat familial apaisé</p>
-              <p class="text-sm text-content-light leading-relaxed">Moins de tensions, plus de compréhension mutuelle, et une communication qui redevient possible.</p>
-            </div>
+          ))}
+        </div>
+
+        <!-- Bénéfices secondaires -->
+        <div class="mt-[34px]">
+          <div class="font-semibold text-[13.5px] uppercase tracking-[.14em] text-violet-600 mb-4" style="font-family: 'Poppins', sans-serif;">
+            Vous pourrez également
           </div>
+          {BENEFITS_ALSO.map(({ title, body }) => (
+            <div class="grid grid-cols-[28px_1fr] gap-3.5 py-3.5 border-b border-black/6 last:border-0">
+              <div class="w-7 h-7 rounded-full bg-white text-violet-600 flex items-center justify-center shadow-[0_1px_2px_rgba(44,20,60,0.04)] flex-shrink-0">
+                <Fragment set:html={CHECK} />
+              </div>
+              <div>
+                <h4 class="font-bold text-[15.5px] leading-[1.35] text-ink mb-1" style="font-family: 'Poppins', sans-serif;">{title}</h4>
+                <p class="text-[14.5px] leading-[1.5] text-ink-soft m-0">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-          <div class="flex gap-4">
-            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
-              <Check class="w-3.5 h-3.5 text-white" />
-            </div>
-            <div>
-              <p class="font-bold text-content mb-1">Vous avez les clés pour comprendre les vrais enjeux derrière les symptômes</p>
-              <p class="text-sm text-content-light leading-relaxed">Je vous aide à décoder les signaux faibles, à comprendre ce que votre ado essaie (maladroitement) d'exprimer.</p>
-            </div>
-          </div>
+        <div class="mt-8">
+          <a
+            href="#rdv"
+            class="inline-flex items-center gap-2.5 px-7 py-[14px] bg-violet-500 text-white rounded-[999px] font-bold text-[16px] shadow-[0_8px_20px_rgba(158,107,192,0.35)] hover:bg-violet-600 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(158,107,192,0.48)] transition-all duration-300 cursor-pointer no-underline group"
+            style="font-family: 'Epilogue Variable', sans-serif;"
+          >
+            En savoir plus <Fragment set:html={ARROW_R} />
+          </a>
         </div>
       </div>
 
-      <div class="aspect-[4/3] rounded-2xl bg-white/60 overflow-hidden flex items-center justify-center shadow-sm">
-        <span class="text-content-light/40 text-sm">Photo</span>
-      </div>
-    </div>
-
-    <!-- Bloc 2 -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-      <div class="aspect-[4/3] rounded-2xl bg-white/60 overflow-hidden flex items-center justify-center shadow-sm order-2 lg:order-1">
-        <span class="text-content-light/40 text-sm">Photo</span>
-      </div>
-
-      <div class="order-1 lg:order-2">
-        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-6">Vous pourrez également</p>
-
-        <div class="space-y-6 mb-10">
-          <div class="flex gap-4">
-            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
-              <Check class="w-3.5 h-3.5 text-white" />
-            </div>
-            <div>
-              <p class="font-bold text-content mb-1">(Re)donner confiance à votre adolescent</p>
-              <p class="text-sm text-content-light leading-relaxed">Chaque accompagnement vise à renforcer l'estime de soi et l'autonomie du jeune, à son rythme.</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4">
-            <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-primary/30">
-              <Check class="w-3.5 h-3.5 text-white" />
-            </div>
-            <div>
-              <p class="font-bold text-content mb-1">Trouver des repères concrets pour avancer</p>
-              <p class="text-sm text-content-light leading-relaxed">Des outils, des pistes, des éclairages adaptés à votre situation, pour sortir de l'impuissance.</p>
-            </div>
-          </div>
+      <!-- Colonne droite : collage photos -->
+      <div class="reveal relative" style="aspect-ratio: 1/1.05;">
+        <!-- Photo 1 -->
+        <div
+          class="absolute top-0 left-[10%] w-[62%] rounded-[33px] bg-center bg-cover shadow-[0_28px_60px_rgba(44,20,60,0.14)] overflow-hidden hover:-rotate-[5deg] hover:-translate-y-1.5 transition-transform duration-700"
+          style="aspect-ratio:4/5; transform: rotate(-3deg); background-image: url('/images/hero-right.jpg');"
+        ></div>
+        <!-- Photo 2 -->
+        <div
+          class="absolute bottom-0 right-0 w-[60%] rounded-[33px] bg-center bg-cover shadow-[0_28px_60px_rgba(44,20,60,0.14)] overflow-hidden hover:rotate-[6deg] hover:-translate-y-1.5 transition-transform duration-700"
+          style="aspect-ratio:4/4; transform: rotate(4deg); background-image: url('/images/transformation.jpg');"
+        ></div>
+        <!-- Badge 1 -->
+        <div class="absolute top-[34%] right-[-6%] bg-white rounded-[999px] px-4 py-2.5 flex items-center gap-2 font-bold text-[13px] text-violet-600 shadow-[0_12px_34px_rgba(44,20,60,0.08)] z-10 rotate-[6deg]" style="font-family: 'Epilogue Variable', sans-serif;">
+          <Fragment set:html={HEART} /> Climat apaisé
         </div>
-
-        <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-          En savoir plus
-          <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-        </a>
+        <!-- Badge 2 -->
+        <div class="absolute bottom-[34%] left-[-4%] bg-white rounded-[999px] px-4 py-2.5 flex items-center gap-2 font-bold text-[13px] text-violet-600 shadow-[0_12px_34px_rgba(44,20,60,0.08)] z-10 -rotate-[5deg]" style="font-family: 'Epilogue Variable', sans-serif;">
+          <Fragment set:html={CHECK} /> Confiance retrouvée
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>

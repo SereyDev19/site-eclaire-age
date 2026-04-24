@@ -1,7 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import HeroMaquette from '../components/HeroMaquette.astro';
 import ItemsSousHero from '../components/ItemsSousHero.astro';
 import Problematiques from '../components/Problematiques.astro';
@@ -10,26 +8,24 @@ import VosBenefices from '../components/VosBenefices.astro';
 import Stats from '../components/Stats.astro';
 import Local from '../components/Local.astro';
 import Actus from '../components/Actus.astro';
+import FAQ from '../components/FAQ.astro';
 import CTAFinal from '../components/CTAFinal.astro';
+
+const frontmatter = {
+  title: 'EclaireAge — Psychologue en ligne pour ados & familles',
+  description: "Accompagnement psychologique sur-mesure pour adolescents et parents, en cabinet ou en visio.",
+};
 ---
 
-<BaseLayout title="EclaireAge — Psychologue en ligne pour ados & familles">
-  <!-- Header + Hero : bloc arrondi bas -->
-  <div class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
-    <Header />
-    <HeroMaquette />
-  </div>
-
-  <main id="main-content">
-    <ItemsSousHero />
-    <Problematiques />
-    <Accompagnement />
-    <VosBenefices />
-    <Stats />
-    <Local />
-    <Actus />
-    <CTAFinal />
-  </main>
-
-  <Footer />
-</BaseLayout>
+<PageLayout frontmatter={frontmatter}>
+  <HeroMaquette />
+  <ItemsSousHero />
+  <Problematiques />
+  <Accompagnement />
+  <VosBenefices />
+  <Stats />
+  <Local />
+  <Actus />
+  <FAQ />
+  <CTAFinal />
+</PageLayout>

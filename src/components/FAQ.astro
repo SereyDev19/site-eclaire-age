@@ -1,0 +1,91 @@
+---
+const FAQS = [
+  { q: "Mon ado ne veut pas venir… est-ce utile quand même ?", a: "Oui. Beaucoup de familles commencent par un ou deux rendez-vous côté parents. Cela permet souvent de réduire les tensions à la maison et, parfois, de donner à l'ado l'envie de venir de lui-même." },
+  { q: "Combien de temps dure un accompagnement ?", a: "Chaque situation est différente : certaines familles trouvent leurs réponses en 3-4 séances, d'autres bénéficient d'un suivi plus long. Nous réévaluons régulièrement ensemble." },
+  { q: "Est-ce que ce que je dis (ou que dit mon enfant) reste confidentiel ?", a: "Absolument. Les échanges sont protégés par le secret professionnel. Quand je reçois un ado, ce qu'il me dit lui appartient — je ne le partage pas sans son accord." },
+  { q: "Est-ce que c'est une thérapie ?", a: "Pas toujours. Je propose aussi de la guidance parentale, de l'orientation et du coaching. Nous définissons ensemble le cadre qui correspond à votre besoin." },
+  { q: "Je ne sais pas si c'est « assez grave » pour consulter…", a: "Il n'y a pas de seuil. Un simple doute, une inquiétude, un climat qui se dégrade : ce sont des raisons valables pour en parler. L'appel de 15 min est fait pour ça." },
+  { q: "Est-ce remboursé ?", a: "Les consultations de psychologue peuvent être partiellement prises en charge par certaines mutuelles et via le dispositif « Mon soutien psy ». Je vous explique les modalités lors du premier contact." },
+  { q: "Et si je ne sais pas par où commencer ?", a: "Commencez par l'appel de 15 min : c'est gratuit, sans engagement, et ça vous permet de voir si nous sommes bien alignés avant d'aller plus loin." },
+];
+---
+
+<section class="py-[160px]" id="faq">
+  <div class="max-w-[900px] mx-auto px-10">
+    <!-- En-tête -->
+    <div class="reveal text-center mb-0">
+      <span class="kicker"><span class="bar"></span> FAQ</span>
+      <h2 class="font-bold text-[clamp(30px,3vw,40px)] leading-[1.12] tracking-[-0.015em] text-violet-600 m-0 text-balance" style="font-family: 'Poppins', sans-serif;">
+        Questions fréquentes
+      </h2>
+    </div>
+
+    <!-- Accordéon -->
+    <div class="reveal-stagger mt-12 flex flex-col gap-3">
+      {FAQS.map((f, i) => (
+        <div class="faq-item bg-white border border-violet-200 rounded-[18px] overflow-hidden transition-all duration-300" data-index={i}>
+          <button
+            class="faq-q w-full flex items-center justify-between px-7 py-[22px] font-semibold text-[15.5px] text-ink text-left hover:text-violet-600 transition-colors duration-200 cursor-pointer"
+            style="font-family: 'Poppins', sans-serif;"
+            aria-expanded="false"
+          >
+            {f.q}
+            <span class="faq-toggle w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center transition-all duration-300 flex-shrink-0 ml-4">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" class="w-3.5 h-3.5">
+                <path d="M10 4v12M4 10h12"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-a overflow-hidden max-h-0 transition-all duration-400" style="transition: max-height .4s cubic-bezier(.22,1,.36,1), padding .3s;">
+            <p class="px-7 pb-6 m-0 text-ink-muted text-[14.5px] leading-[1.65]">{f.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach((item) => {
+    const el = item as HTMLElement;
+    const btn = el.querySelector('.faq-q') as HTMLButtonElement | null;
+    const answer = el.querySelector('.faq-a') as HTMLElement | null;
+    const toggle = el.querySelector('.faq-toggle') as HTMLElement | null;
+
+    btn?.addEventListener('click', () => {
+      const isOpen = el.classList.contains('open');
+
+      // Fermer tous les autres
+      items.forEach(other => {
+        if (other !== item) {
+          const o = other as HTMLElement;
+          o.classList.remove('open');
+          o.querySelector('.faq-q')?.setAttribute('aria-expanded', 'false');
+          const oa = o.querySelector('.faq-a') as HTMLElement | null;
+          const ot = o.querySelector('.faq-toggle') as HTMLElement | null;
+          if (oa) { oa.style.maxHeight = '0'; oa.style.paddingBottom = '0'; }
+          if (ot) { ot.style.transform = ''; ot.style.background = ''; ot.style.color = ''; }
+          o.style.borderColor = '';
+          o.style.boxShadow = '';
+        }
+      });
+
+      if (!isOpen) {
+        el.classList.add('open');
+        btn?.setAttribute('aria-expanded', 'true');
+        if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+        if (toggle) { toggle.style.transform = 'rotate(45deg)'; toggle.style.background = '#9e6bc0'; toggle.style.color = 'white'; }
+        el.style.borderColor = '#b988d6';
+        el.style.boxShadow = '0 4px 14px rgba(44,20,60,0.06)';
+      } else {
+        el.classList.remove('open');
+        btn?.setAttribute('aria-expanded', 'false');
+        if (answer) answer.style.maxHeight = '0';
+        if (toggle) { toggle.style.transform = ''; toggle.style.background = ''; toggle.style.color = ''; }
+        el.style.borderColor = '';
+        el.style.boxShadow = '';
+      }
+    });
+  });
+</script>

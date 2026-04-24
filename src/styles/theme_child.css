@@ -1,55 +1,72 @@
 /*
  * ============================================================
- * THEME CHILD - Your Custom Overrides
- * ============================================================
- * 
- * This file is for YOUR custom theme overrides.
- * It will NOT be overwritten by the Token Designer.
- * 
- * IMPORTANT: Use @theme { } to define colors for Tailwind autocomplete!
- * This creates utility classes like: bg-mycolor, text-mycolor, border-mycolor
- * 
+ * THEME CHILD — Charte EclaireAge (aligné sur la maquette)
  * ============================================================
  */
-
-/* 
- * Override existing theme colors or add new ones:
- * 
- * @theme {
- *   --color-primary: #your-custom-color;
- *   --color-brand: #ff6b6b;
- *   --color-highlight: #ffd93d;
- * }
- * 
- * Then use: bg-brand, text-highlight, border-primary, etc.
- */
-
-/* Add your custom theme overrides below */
 
 @theme {
-  /* === Charte EclaireAge === */
+  /* Fonts */
+  --font-sans: 'Poppins', system-ui, sans-serif;
+  --font-heading: 'Poppins', system-ui, sans-serif;
+  --font-display: 'Epilogue Variable', system-ui, sans-serif;
 
-  /* Typography */
-  --font-sans: 'Poppins', sans-serif;
-  --font-heading: 'Poppins', sans-serif;
+  /* Palette violet */
+  --color-violet-900: #5b2a7a;
+  --color-violet-700: #7a44a6;
+  --color-violet-600: #9833dc;
+  --color-violet-500: #9e6bc0;
+  --color-violet-400: #b988d6;
+  --color-violet-300: #e8c6ff;
+  --color-violet-200: #eacbff;
+  --color-violet-100: #f4e6ff;
+  --color-violet-50:  #fbf5ff;
 
-  /* Primary - violet */
-  --color-primary: #7B4FA6;
-  --color-primary-dark: #63408a;
-  --color-primary-light: #A67CC5;
+  /* Accent orange */
+  --color-orange: #f15025;
+  --color-orange-soft: #ff7c5c;
 
-  /* Surfaces */
+  /* Tons chauds */
+  --color-pink-dusty: #e4d2d2;
+  --color-pink-dusty-deep: #d8c2c2;
+
+  /* Encre (texte) */
+  --color-ink: #2c2c2c;
+  --color-ink-soft: #4a3f3f;
+  --color-ink-muted: #6b5f5f;
+
+  /* Fonds */
+  --color-cream: #fbfaf8;
+  --color-paper: #ffffff;
+  --color-bone: #f6f3ef;
+  --color-sand: #faf7f2;
+
+  /* Tokens Tailwind existants remappés */
+  --color-primary: #9e6bc0;
+  --color-primary-dark: #9833dc;
+  --color-primary-light: #b988d6;
   --color-surface: #ffffff;
-  --color-surface-alt: #F3EAFA;
-  --color-surface-hover: #ede0f5;
-  --color-surface-warm: #F5EDE8;
-  --color-surface-dark: #2D2D2D;
+  --color-surface-alt: #f4e6ff;
+  --color-surface-hover: #eacbff;
+  --color-content: #2c2c2c;
+  --color-content-light: #6b5f5f;
+  --color-outline: rgba(158,107,192,0.28);
+  --color-outline-light: #f4e6ff;
 
-  /* Text */
-  --color-content: #1A1A1A;
-  --color-content-light: #6B6B6B;
+  /* Ombres */
+  --shadow-xs: 0 1px 2px rgba(44,20,60,0.04);
+  --shadow-sm: 0 4px 14px rgba(44,20,60,0.06);
+  --shadow-md: 0 12px 34px rgba(44,20,60,0.08);
+  --shadow-lg: 0 28px 60px rgba(44,20,60,0.14);
+  --shadow-glow: 0 18px 40px rgba(158,107,192,0.22);
 
-  /* Outline */
-  --color-outline: #EDE0F5;
-  --color-outline-light: #F3EAFA;
+  /* Rayons */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 27px;
+  --radius-xl: 33px;
+  --radius-pill: 999px;
+
+  /* Easing */
+  --ease-smooth: cubic-bezier(.22, 1, .36, 1);
+  --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
 }

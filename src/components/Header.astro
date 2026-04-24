@@ -1,24 +1,119 @@
 ---
-import MainMenu from './menus/MainMenu.astro';
-
-interface Props {
-    class?: string;
-}
-
-const { class: className } = Astro.props;
+const NAV_LINKS = [
+  { label: 'Accueil',  href: '#accueil' },
+  { label: 'Approche', href: '#approche' },
+  { label: 'Services', href: '#services' },
+  { label: 'À propos', href: '#about' },
+];
 ---
 
-<header class:list={["relative z-50", className]}>
-  <div class="max-w-[1200px] mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+<header class="sticky top-3 z-50 max-w-[1290px] mx-auto px-3 mt-3" id="site-header">
+  <div
+    id="nav-inner"
+    class="flex items-center justify-between bg-violet-500 rounded-[27px] px-7 py-3.5 shadow-sm transition-all duration-500"
+  >
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-1 no-underline cursor-pointer group">
-      <span class="inline-flex items-center justify-center w-7 h-7 bg-primary rounded-full text-white text-sm font-bold group-hover:scale-110 transition-transform duration-200">e</span>
-      <span class="text-lg text-content-light font-light tracking-tight">claire'age</span>
+    <a href="/" class="cursor-pointer flex-shrink-0">
+      <img src="/images/logo-white.png" alt="Éclaire Âge" class="h-[26px] brightness-0 invert" />
     </a>
 
-    <!-- Nav -->
-    <div class="uppercase tracking-[0.15em] text-[0.8rem]">
-      <MainMenu />
-    </div>
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-2">
+      {NAV_LINKS.map(({ label, href }) => (
+        <a
+          href={href}
+          class="text-white font-medium text-[14px] tracking-[.04em] uppercase px-[18px] py-[10px] rounded-[999px] hover:bg-white/15 transition-colors duration-200 no-underline"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="#rdv"
+        class="ml-2 bg-white text-violet-600 font-bold text-[14px] px-[22px] py-[10px] rounded-[999px] hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(0,0,0,0.18)] transition-all duration-200 no-underline cursor-pointer"
+        style="font-family: 'Epilogue Variable', sans-serif;"
+      >
+        Prendre RDV
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+      aria-label="Ouvrir le menu"
+    >
+      <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300" id="ham-1"></span>
+      <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300" id="ham-2"></span>
+      <span class="block w-6 h-0.5 bg-white rounded transition-all duration-300" id="ham-3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile panel -->
+  <div
+    id="mobile-menu"
+    class="hidden mt-2 bg-violet-500 rounded-[27px] px-6 py-5 shadow-lg"
+  >
+    <nav class="flex flex-col gap-1">
+      {NAV_LINKS.map(({ label, href }) => (
+        <a
+          href={href}
+          class="mobile-nav-link text-white font-medium text-[15px] uppercase px-4 py-3 rounded-[999px] hover:bg-white/15 transition-colors duration-200 no-underline"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="#rdv"
+        class="mobile-nav-link mt-2 bg-white text-violet-600 font-bold text-[15px] text-center px-4 py-3 rounded-[999px] no-underline cursor-pointer"
+        style="font-family: 'Epilogue Variable', sans-serif;"
+      >
+        Prendre RDV
+      </a>
+    </nav>
   </div>
 </header>
+
+<script>
+  const navInner = document.getElementById('nav-inner');
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const ham1 = document.getElementById('ham-1');
+  const ham2 = document.getElementById('ham-2');
+  const ham3 = document.getElementById('ham-3');
+
+  // Scroll glass effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 8) {
+      navInner?.classList.add('shadow-[0_12px_34px_rgba(44,20,60,0.08)]');
+    } else {
+      navInner?.classList.remove('shadow-[0_12px_34px_rgba(44,20,60,0.08)]');
+    }
+  }, { passive: true });
+
+  // Mobile toggle
+  let open = false;
+  mobileBtn?.addEventListener('click', () => {
+    open = !open;
+    mobileMenu?.classList.toggle('hidden', !open);
+    if (open) {
+      ham1!.style.transform = 'translateY(8px) rotate(45deg)';
+      ham2!.style.opacity = '0';
+      ham3!.style.transform = 'translateY(-8px) rotate(-45deg)';
+    } else {
+      ham1!.style.transform = '';
+      ham2!.style.opacity = '';
+      ham3!.style.transform = '';
+    }
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      open = false;
+      mobileMenu?.classList.add('hidden');
+      ham1!.style.transform = '';
+      ham2!.style.opacity = '';
+      ham3!.style.transform = '';
+    });
+  });
+</script>

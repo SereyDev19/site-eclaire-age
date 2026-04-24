@@ -4,6 +4,105 @@
 @import "./theme.css";
 @import "./theme_child.css";
 
+/* ============================================================
+   ANIMATIONS MAQUETTE ECLAIREAGE
+   ============================================================ */
+
+/* Reveal au scroll — activé par JS via IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s var(--ease-smooth), transform .8s var(--ease-smooth);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s var(--ease-smooth), transform .6s var(--ease-smooth);
+}
+.reveal-stagger.in > *:nth-child(1) { transition-delay: .05s; }
+.reveal-stagger.in > *:nth-child(2) { transition-delay: .15s; }
+.reveal-stagger.in > *:nth-child(3) { transition-delay: .25s; }
+.reveal-stagger.in > *:nth-child(4) { transition-delay: .35s; }
+.reveal-stagger.in > * { opacity: 1; transform: none; }
+
+/* Titre hero — mot par mot */
+@keyframes wordUp {
+  to { opacity: 1; transform: none; }
+}
+
+/* Point pulsant hero */
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(158,107,192,0.18); }
+  50%       { box-shadow: 0 0 0 10px rgba(158,107,192,0.02); }
+}
+
+/* Blobs flottants hero */
+@keyframes floatA {
+  0%, 100% { transform: translate(0,0); }
+  50%       { transform: translate(-8px,-14px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translate(0,0); }
+  50%       { transform: translate(12px,-10px); }
+}
+
+/* Anneau tournant hero */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+/* Soulignement animé des titres (.under) */
+@keyframes underlineIn {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Utilitaires d'animation */
+.animate-float-a  { animation: floatA 8s ease-in-out infinite; }
+.animate-float-b  { animation: floatB 11s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 32s linear infinite; }
+.animate-pulse-dot { animation: pulse-dot 2.2s infinite; }
+
+/* Soulignement titre — classe utilitaire */
+.title-under {
+  position: relative;
+  display: inline-block;
+}
+.title-under::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 2px;
+  height: 10px;
+  background: var(--color-violet-300);
+  z-index: -1;
+  border-radius: 4px;
+  transform-origin: left;
+  animation: underlineIn 1.2s var(--ease-smooth) .3s both;
+}
+
+/* Kicker (badge de section) */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-violet-600);
+  background: var(--color-violet-100);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 18px;
+}
+.kicker .bar {
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+}
+
 /* Base styles */
 @layer base {
   * {

@@ -1,59 +1,63 @@
 ---
-import CloudRain from '@lucide/astro/icons/cloud-rain';
-import Zap from '@lucide/astro/icons/zap';
-import BookX from '@lucide/astro/icons/book-x';
-import ShieldOff from '@lucide/astro/icons/shield-off';
-
-const items = [
+const PROBLEMS = [
   {
-    icon: CloudRain,
-    title: "Perte de repères et mal-être diffus",
-    intro: "Quand l'ado ne va pas bien, mais que personne ne sait vraiment pourquoi.",
-    body: "Difficulté à se lever le matin, chute de motivation, isolement, émotions à fleur de peau, ou tout simplement \"quelque chose qui ne va pas\". Ces signes peuvent être déroutants pour les parents comme pour l'ado."
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[34px] h-[34px]"><path d="M7 18a5 5 0 1 1 .6-9.96A7 7 0 0 1 21 14a4 4 0 0 1-4 4H7z"/><path d="M8 21l1-2M12 21l1-2M16 21l1-2"/></svg>`,
+    title: "Quand l'ado ne va pas bien, mais que personne ne sait vraiment pourquoi",
+    body: "Difficulté à se lever le matin, chute de motivation, isolement, émotions à fleur de peau, ou tout simplement « quelque chose qui ne va pas ». Ces signes peuvent être déroutants pour les parents comme pour l'ado.",
   },
   {
-    icon: Zap,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[34px] h-[34px]"><path d="M4 5h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-5l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8 10h8M8 13h5"/></svg>`,
     title: "Conflits familiaux et communication rompue",
-    intro: "Quand parler devient difficile, voire impossible.",
-    body: "Tensions, reproches, silence ou incompréhension... Il arrive que la relation parent-ado se tende au point de se figer. Restaurer le lien est souvent la première étape vers l'apaisement."
+    body: "Tensions, reproches, silence ou incompréhension… Il arrive que la relation parent-ado se tende au point de se figer. Restaurer le lien est souvent la première étape vers l'apaisement.",
   },
   {
-    icon: BookX,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-[34px] h-[34px]"><path d="M3 10l9-5 9 5-9 5-9-5z"/><path d="M6 12v5c0 1 3 2 6 2s6-1 6-2v-5"/><path d="M21 10v6"/></svg>`,
     title: "Désengagement scolaire ou errance d'orientation",
-    intro: "Quand l'école devient source d'angoisse ou d'échec.",
-    body: "Décrochage, démotivation, refus de se projeter... Je vous aide à comprendre ce qui se joue derrière ces blocages, et à retrouver une dynamique porteuse."
+    body: "Décrochage, démotivation, refus de se projeter… Je vous aide à comprendre ce qui se joue derrière ces blocages, et à retrouver une dynamique porteuse.",
   },
   {
-    icon: ShieldOff,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" class="w-[34px] h-[34px]"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>`,
     title: "Manque de confiance et repli sur soi",
-    intro: "Quand l'adolescent ne croit plus en lui (ou n'a jamais su comment faire).",
-    body: "Estime de soi en berne, peur du regard des autres, impression de ne pas \"rentrer dans le moule\"... Un regard extérieur et bienveillant peut aider à faire émerger les ressources."
-  }
+    body: "Estime de soi en berne, peur du regard des autres, impression de ne pas « rentrer dans le moule »… Un regard extérieur et bienveillant peut aider à faire émerger les ressources.",
+  },
 ];
+
+const ARROW_UR = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>`;
 ---
 
-<section class="py-16 md:py-24 bg-surface">
-  <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
-    <div class="text-center mb-14">
-      <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-4">
-        Les problématiques que j'accompagne au quotidien
-      </h2>
-      <p class="text-content-light max-w-xl mx-auto leading-relaxed">
-        Chaque adolescent est unique, mais certains signaux reviennent souvent. Voici les situations pour lesquelles les familles me sollicitent le plus.
-      </p>
-    </div>
+<section class="py-[160px] max-w-[1290px] mx-auto px-10" id="services">
+  <!-- En-tête -->
+  <div class="reveal text-center max-w-[820px] mx-auto mb-16">
+    <span class="kicker"><span class="bar"></span> Problématiques</span>
+    <h2 class="font-bold text-[clamp(30px,3vw,40px)] leading-[1.12] tracking-[-0.015em] text-ink mb-4 text-balance" style="font-family: 'Poppins', sans-serif;">
+      Les problématiques que j'accompagne <span class="title-under">au quotidien</span>
+    </h2>
+    <p class="text-[16.5px] leading-[1.6] text-ink-muted max-w-[680px] mx-auto">
+      Chaque adolescent est unique, mais certains signaux reviennent souvent. Voici les situations pour lesquelles les familles me sollicitent le plus.
+    </p>
+  </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {items.map(({ icon: Icon, title, intro, body }) => (
-        <div class="group bg-surface rounded-2xl border border-outline/50 p-7 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-          <div class="w-10 h-10 flex items-center justify-center bg-primary/8 rounded-xl mb-5 group-hover:bg-primary/15 transition-colors duration-300">
-            <Icon class="w-5 h-5 text-primary" />
-          </div>
-          <h3 class="text-lg font-bold text-content mb-3 group-hover:text-primary transition-colors duration-300">{title}</h3>
-          <p class="text-sm text-content-light italic leading-relaxed mb-3 border-l-2 border-primary/20 pl-3">{intro}</p>
-          <p class="text-sm text-content-light leading-relaxed">{body}</p>
+  <!-- Grille 2×2 -->
+  <div class="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6">
+    {PROBLEMS.map(({ icon, title, body }) => (
+      <article class="group relative bg-white rounded-[27px] border border-violet-200 pt-[84px] px-[38px] pb-9 shadow-[0_1px_2px_rgba(44,20,60,0.04)] hover:-translate-y-1.5 hover:shadow-[0_12px_34px_rgba(44,20,60,0.08)] hover:border-violet-400 transition-all duration-300 overflow-hidden">
+        <!-- Radial hover glow -->
+        <div class="absolute inset-0 rounded-[27px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+             style="background: radial-gradient(800px 300px at 50% -20%, #f4e6ff, transparent 55%);">
         </div>
-      ))}
-    </div>
+        <!-- Icône centrée -->
+        <div class="problem-icon absolute left-1/2 -top-[42px] -translate-x-1/2 w-[84px] h-[84px] rounded-full flex items-center justify-center text-violet-600 shadow-[0_10px_24px_rgba(158,107,192,0.22)] group-hover:scale-[1.04] group-hover:-rotate-[6deg] transition-transform duration-300"
+             style="background: radial-gradient(circle at 30% 30%, #eacbff, white 78%);">
+          <Fragment set:html={icon} />
+        </div>
+        <!-- Flèche top-right -->
+        <div class="absolute top-[22px] right-[22px] w-8 h-8 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300">
+          <Fragment set:html={ARROW_UR} />
+        </div>
+        <h3 class="font-bold text-[22px] leading-[1.25] text-center text-ink mb-3.5" style="font-family: 'Poppins', sans-serif;">{title}</h3>
+        <p class="text-[15.5px] leading-[1.6] text-ink-muted text-center m-0">{body}</p>
+      </article>
+    ))}
   </div>
 </section>
+
