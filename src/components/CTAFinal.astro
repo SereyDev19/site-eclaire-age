@@ -1,35 +1,63 @@
 ---
-import ArrowRight from '@lucide/astro/icons/arrow-right';
+const ARROW_R = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 ---
 
-<section class="py-16 md:py-24 relative overflow-hidden">
-  <!-- Fond dégradé -->
-  <div class="absolute inset-0 bg-gradient-to-r from-primary-light/20 via-primary/10 to-primary-light/20"></div>
+<section class="pb-[120px]" id="cta-final">
+  <div class="bg-gradient-to-br from-violet-600 to-[#7a28b8] rounded-[27px] mx-3 px-[72px] py-[100px] relative overflow-hidden text-center">
+    <!-- Décors -->
+    <div class="absolute -left-[120px] -bottom-[120px] w-[400px] h-[400px] rounded-full pointer-events-none"
+         style="background: radial-gradient(circle, rgba(232,198,255,0.22), transparent 60%);">
+    </div>
+    <div class="absolute -right-[80px] -top-[80px] w-[320px] h-[320px] rounded-full pointer-events-none"
+         style="background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);">
+    </div>
 
-  <div class="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
-    <div class="bg-surface rounded-3xl shadow-xl px-8 py-10 md:px-14 md:py-12 border border-outline/20">
-      <div class="flex flex-col lg:flex-row items-center gap-10">
+    <!-- Contenu -->
+    <div class="reveal relative max-w-[720px] mx-auto">
+      <span class="kicker" style="background: rgba(255,255,255,0.12); color: rgba(232,198,255,0.95); border-color: rgba(255,255,255,0.15);">
+        <span class="bar" style="background: #e8c6ff;"></span> On commence ?
+      </span>
+      <h2 class="font-bold text-[clamp(28px,3.2vw,44px)] leading-[1.1] tracking-[-0.02em] text-white mb-4 text-balance" style="font-family: 'Poppins', sans-serif;">
+        Vous traversez quelque chose avec votre ado…<br />et vous cherchez à y voir plus clair&nbsp;?
+      </h2>
+      <p class="text-white/75 text-[16px] leading-[1.6] mb-2">
+        Même si c'est encore flou.
+      </p>
+      <p class="text-white/65 text-[15px] leading-[1.65] mb-10 max-w-[540px] mx-auto">
+        Parfois, il ne s'agit pas encore d'agir. Mais simplement de pouvoir dire&nbsp;:<br />
+        <em class="not-italic font-semibold text-white/85">«&nbsp;voilà ce que je vis… et je ne comprends pas&nbsp;»</em><br />
+        Et voir… ce qui devient plus clair.
+      </p>
 
-        <!-- Texte -->
-        <div class="flex-1">
-          <h2 class="text-[1.5rem] sm:text-[1.8rem] font-bold text-primary tracking-tight mb-3">
-            Discutons de vos besoins
-          </h2>
-          <p class="text-content-light leading-relaxed mb-6 max-w-md">
-            Un doute, une question ? Je suis là pour vous répondre.<br />
-            Je vous propose un appel de 15min offert pour déterminer si un accompagnement est approprié.
-          </p>
-          <a href="#contact" class="group inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-            Appel de 15min offert
-            <ArrowRight class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </a>
-        </div>
+      <!-- CTA -->
+      <div class="flex flex-wrap justify-center gap-3.5">
+        <a
+          href="#rdv"
+          class="group inline-flex items-center gap-2.5 px-8 py-[15px] bg-white text-violet-600 rounded-[999px] font-bold text-[16px] shadow-[0_8px_28px_rgba(0,0,0,0.18)] hover:bg-violet-50 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_rgba(0,0,0,0.22)] transition-all duration-300 cursor-pointer no-underline"
+          style="font-family: 'Epilogue', sans-serif;"
+        >
+          Recevoir un premier éclairage
+          <Fragment set:html={ARROW_R} />
+        </a>
+        <a
+          href="#faq"
+          class="inline-flex items-center gap-2.5 px-[26px] py-[13px] bg-transparent text-white border-2 border-white/40 rounded-[999px] font-bold text-[16px] hover:border-white/80 hover:bg-white/8 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline"
+          style="font-family: 'Epilogue', sans-serif;"
+        >
+          Lire les questions fréquentes
+        </a>
+      </div>
 
-        <!-- Avatar -->
-        <div class="w-32 h-32 lg:w-36 lg:h-36 rounded-full bg-surface-alt flex-shrink-0 flex items-center justify-center shadow-md ring-4 ring-white">
-          <span class="text-content-light/40 text-xs">Photo</span>
-        </div>
-
+      <!-- Avatar + citation -->
+      <div class="mt-12 flex items-center justify-center gap-4">
+        <div
+          class="w-12 h-12 rounded-full bg-center bg-cover shadow-[0_0_0_3px_rgba(255,255,255,0.3)] flex-shrink-0"
+          style="background-image: url('/images/Claire%20J-25.jpg')"
+        ></div>
+        <p class="text-white/60 text-[13.5px] italic text-left">
+          Appel de 15 min offert — sans engagement.<br />
+          <span class="not-italic font-medium text-white/75">Claire, psychologue à Blagnac &amp; en visio</span>
+        </p>
       </div>
     </div>
   </div>

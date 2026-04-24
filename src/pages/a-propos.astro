@@ -1,7 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import ArrowRight from '@lucide/astro/icons/arrow-right';
 import Check from '@lucide/astro/icons/check';
 import Heart from '@lucide/astro/icons/heart';
@@ -69,11 +68,15 @@ const parcours = [
     body: "TCC, thérapie systémique, gestion des émotions, prévention du harcèlement scolaire."
   }
 ];
+
+const frontmatter = {
+  title: 'À propos — EclaireAge',
+  description: "Claire, psychologue clinicienne spécialisée dans l'accompagnement des adolescents et de leurs familles.",
+};
 ---
 
-<BaseLayout title="À propos — EclaireAge">
-  <!-- Header + Hero -->
-  <div class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
+<PageLayout frontmatter={frontmatter}>
+  <div slot="header" class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
     <Header />
 
     <section class="px-6 lg:px-8 pt-4 pb-20 md:pt-8 md:pb-28">
@@ -99,9 +102,7 @@ const parcours = [
     </section>
   </div>
 
-  <main id="main-content">
-
-    <!-- Section : Mon histoire -->
+  <!-- Section : Mon histoire -->
     <section class="py-16 md:py-24">
       <div class="max-w-[1200px] mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -250,8 +251,4 @@ const parcours = [
         </div>
       </div>
     </section>
-
-  </main>
-
-  <Footer />
-</BaseLayout>
+</PageLayout>

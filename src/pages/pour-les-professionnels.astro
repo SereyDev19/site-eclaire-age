@@ -1,7 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import ArrowRight from '@lucide/astro/icons/arrow-right';
 import Handshake from '@lucide/astro/icons/handshake';
 import AlertTriangle from '@lucide/astro/icons/triangle-alert';
@@ -105,11 +104,15 @@ const faq = [
     a: "Oui, je propose des ateliers collectifs (groupes de parole, prévention harcèlement, gestion des émotions) et des interventions ponctuelles adaptées à vos besoins."
   }
 ];
+
+const frontmatter = {
+  title: 'Pour les professionnels — EclaireAge',
+  description: "Relais psychologique pour les professionnels de l'éducation, du social et de la santé accompagnant des adolescents.",
+};
 ---
 
-<BaseLayout title="Pour les professionnels — EclaireAge">
-  <!-- Header + Hero -->
-  <div class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
+<PageLayout frontmatter={frontmatter}>
+  <div slot="header" class="bg-surface rounded-b-[2.5rem] shadow-lg shadow-black/5 relative z-10">
     <Header />
 
     <section class="px-6 lg:px-8 pt-8 pb-20 md:pt-12 md:pb-28">
@@ -129,9 +132,7 @@ const faq = [
     </section>
   </div>
 
-  <main id="main-content">
-
-    <!-- Approche -->
+  <!-- Approche -->
     <section class="py-16 md:py-24">
       <div class="max-w-[800px] mx-auto px-6 lg:px-8 text-center">
         <h2 class="text-[1.7rem] sm:text-[2rem] lg:text-[2.3rem] font-bold text-content tracking-tight mb-6">
@@ -299,11 +300,7 @@ const faq = [
         </div>
       </div>
     </section>
-
-  </main>
-
-  <Footer />
-</BaseLayout>
+</PageLayout>
 
 <script>
   document.querySelectorAll('.faq-trigger').forEach(trigger => {

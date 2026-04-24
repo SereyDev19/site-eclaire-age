@@ -1,0 +1,70 @@
+---
+const STATS = [
+  { value: 1700, suffix: "+", label: "adolescents rencontrés", sub: "En collèges, lycées et CIO" },
+  { value: 7, suffix: "+", label: "années d'expérience", sub: "Auprès des familles" },
+  { value: 100, suffix: "%", label: "situations uniques", sub: "Toujours un point de départ commun" },
+];
+---
+
+<section class="py-[80px]" id="references">
+  <div class="bg-[#2c1c3c] rounded-[27px] mx-3 px-[72px] py-[80px] relative overflow-hidden">
+    <!-- Déco radiale -->
+    <div class="absolute -right-[100px] -top-[100px] w-[380px] h-[380px] rounded-full pointer-events-none"
+         style="background: radial-gradient(circle, rgba(158,107,192,0.25), transparent 65%);">
+    </div>
+
+    <!-- En-tête -->
+    <div class="reveal text-center mb-14">
+      <span class="kicker" style="background: rgba(255,255,255,0.08); color: rgba(232,198,255,0.9); border-color: rgba(255,255,255,0.1);">
+        <span class="bar" style="background: #e8c6ff;"></span> Références
+      </span>
+      <h2 class="font-bold text-[clamp(26px,2.8vw,36px)] leading-[1.12] tracking-[-0.015em] text-white mb-3 text-balance" style="font-family: 'Poppins', sans-serif;">
+        Des repères issus <span style="color: #e8c6ff;">du terrain</span>
+      </h2>
+      <p class="text-white/70 text-[15px] max-w-[560px] mx-auto leading-[1.6]">
+        Des situations très différentes… souvent avec ce même point de départ&nbsp;: <em class="not-italic font-semibold text-white/90">«&nbsp;on ne sait plus trop quoi penser&nbsp;»</em>
+      </p>
+    </div>
+
+    <!-- Chiffres -->
+    <div class="reveal-stagger grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-[900px] mx-auto">
+      {STATS.map(({ value, suffix, label, sub }) => (
+        <div class="text-center">
+          <div class="font-bold text-[clamp(44px,5vw,64px)] leading-none tracking-[-0.03em] text-white mb-2" style="font-family: 'Poppins', sans-serif;">
+            <span class="stat-counter" data-target={value}>{value}</span>{suffix}
+          </div>
+          <div class="font-semibold text-[15px] text-white/90 mb-1" style="font-family: 'Epilogue', sans-serif;">{label}</div>
+          <div class="text-[13px] text-white/50">{sub}</div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const counters = document.querySelectorAll('.stat-counter');
+  const observed = new Set<Element>();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || observed.has(entry.target)) return;
+      observed.add(entry.target);
+      const el = entry.target as HTMLElement;
+      const target = parseInt(el.dataset.target || '0', 10);
+      const duration = 1800;
+      const start = performance.now();
+
+      function tick(now: number) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(ease * target).toLocaleString('fr-FR');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach(c => observer.observe(c));
+</script>
