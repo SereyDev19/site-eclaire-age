@@ -7,23 +7,24 @@ const COOKIE_SECRET = 'eclairage_auth_ok_2026';
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { request, cookies } = context;
+  const url = new URL(request.url);
 
   // Already authenticated via cookie
   if (cookies.get(COOKIE_NAME)?.value === COOKIE_SECRET) {
     return next();
   }
 
-  // Handle login form submission
-  if (request.method === 'POST') {
+  // Handle login form POST on dedicated route /_auth
+  if (url.pathname === '/_auth' && request.method === 'POST') {
     const form = await request.formData();
     const user = form.get('username')?.toString().trim();
     const pass = form.get('password')?.toString();
+    const redirect = form.get('redirect')?.toString() || '/';
 
     if (user === USERNAME && pass === PASSWORD) {
-      const url = new URL(request.url);
       const res = new Response(null, {
         status: 302,
-        headers: { 'Location': url.pathname },
+        headers: { 'Location': redirect },
       });
       res.headers.append(
         'Set-Cookie',
@@ -32,19 +33,20 @@ export const onRequest = defineMiddleware(async (context, next) => {
       return res;
     }
 
-    return new Response(loginHtml(true), {
+    return new Response(loginHtml(url.pathname, true), {
       status: 401,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
   }
 
-  return new Response(loginHtml(false), {
+  // Show login form for all other requests
+  return new Response(loginHtml(url.pathname, false), {
     status: 401,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
   });
 });
 
-function loginHtml(error: boolean): string {
+function loginHtml(from: string, error: boolean): string {
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -104,7 +106,8 @@ function loginHtml(error: boolean): string {
       <p>Espace réservé — veuillez vous identifier</p>
     </div>
     ${error ? '<div class="error">Identifiants incorrects. Réessayez.</div>' : ''}
-    <form method="POST">
+    <form method="POST" action="/_auth">
+      <input type="hidden" name="redirect" value="${from}"/>
       <label for="username">Identifiant</label>
       <input id="username" type="text" name="username" autocomplete="username" required autofocus/>
       <label for="password">Mot de passe</label>
