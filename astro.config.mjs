@@ -10,6 +10,7 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 // Note: Set your 'site' URL in SEO Settings to enable sitemap generation
 export default defineConfig({
+  output: 'server',
   adapter: vercel(),
   integrations: [mdx(), sitemap(), react()],
   image: {

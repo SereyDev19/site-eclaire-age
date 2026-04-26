@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import PageLayout from '../layouts/PageLayout.astro';
 import HeroMaquette from '../components/HeroMaquette.astro';
 import ItemsSousHero from '../components/ItemsSousHero.astro';
@@ -16,6 +17,7 @@ const frontmatter = {
   description: "Accompagnement psychologique sur-mesure pour adolescents et parents, en cabinet ou en visio.",
 };
 ---
+export const prerender = true;
 
 <PageLayout frontmatter={frontmatter}>
   <HeroMaquette />
