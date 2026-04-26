@@ -4,11 +4,13 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { devComponentIdPlugin } from './__phantom_dev_tools.mjs';
+import vercel from '@astrojs/vercel';
 
 
 // https://astro.build/config
 // Note: Set your 'site' URL in SEO Settings to enable sitemap generation
 export default defineConfig({
+  adapter: vercel(),
   integrations: [mdx(), sitemap(), react()],
   image: {
     // Use Sharp for image optimization (converts to WebP/AVIF, resizes)
