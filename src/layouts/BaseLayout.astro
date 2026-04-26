@@ -67,7 +67,7 @@ const twitterImage = twitter?.image || image;
 const twitterCard = twitter?.card || 'summary_large_image';
 
 // Build robots meta content
-const robotsContent = robots && robots.length > 0 ? robots.join(', ') : 'index, follow';
+const robotsContent = robots && robots.length > 0 ? robots.join(', ') : 'noindex, nofollow';
 
 // Get canonical URL - must be absolute for SEO
 const canonical = canonicalUrl && /^https?:\/\//.test(canonicalUrl)
